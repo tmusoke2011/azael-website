@@ -1,11 +1,12 @@
 /* Site-wide typography and label hierarchy. */
 :root{
   --type-display:#071d35;
-  --type-secondary:#00635f;
+  --type-secondary:#3f5261;
   --type-body:#74818b;
   --type-body-strong:#354754;
   --type-meta:#929ca4;
   --type-gold:#b87808;
+  --type-gold-dark:#946006;
 }
 
 /* ONE LABEL SYSTEM: same size, weight, tracking and colour everywhere. */
@@ -36,7 +37,7 @@
   color:var(--type-display) !important;
 }
 
-/* Secondary/card headings. */
+/* Secondary/card headings: neutral slate-navy, not teal. */
 .approved-card h3,
 .choice h3,
 .editorial-row h3,
@@ -92,9 +93,20 @@
   color:var(--type-gold) !important;
 }
 
-/* Links are actions. */
-.text-link{color:var(--type-secondary) !important}
+/* ACTION LINKS: gold again, with visible underline cue. */
+.text-link{
+  color:var(--type-gold) !important;
+  font-weight:700 !important;
+  text-decoration:underline !important;
+  text-decoration-thickness:1px !important;
+  text-underline-offset:4px !important;
+  text-decoration-color:rgba(184,120,8,.45) !important;
+}
 .text-link .arrow{color:var(--type-gold) !important}
+.text-link:hover{
+  color:var(--type-gold-dark) !important;
+  text-decoration-color:currentColor !important;
+}
 
 /* Dark-background hierarchy. */
 .section-navy h2,
@@ -115,16 +127,10 @@
 }
 .b5{color:var(--type-display) !important}
 
-/* Hero hierarchy: four clearly distinct roles. */
-.hero-shell h1{
-  color:#fff !important;
-}
-.hero-shell .hero-lead{
-  color:rgba(255,255,255,.88) !important;
-}
-.hero-shell .hero-body{
-  color:rgba(255,255,255,.66) !important;
-}
+/* Hero hierarchy. */
+.hero-shell h1{color:#fff !important}
+.hero-shell .hero-lead{color:rgba(255,255,255,.88) !important}
+.hero-shell .hero-body{color:rgba(255,255,255,.66) !important}
 
 /* Footer hierarchy. */
 footer .footer-label{
