@@ -1,0 +1,131 @@
+/* Site-wide typography colour hierarchy: designed for visible, not merely technical, contrast. */
+:root{
+  --type-display:#071d35;
+  --type-secondary:#00635f;
+  --type-body:#74818b;
+  --type-body-strong:#354754;
+  --type-meta:#929ca4;
+  --type-gold:#b87808;
+  --type-gold-bright:#d89214;
+}
+
+/* 1. Major statements: the darkest, most authoritative voice. */
+.approved-title,
+.editorial-title,
+.journey-head h2,
+.assess-copy h2,
+.mandate h2,
+.example-copy-approved h2,
+.about-lead-approved h2,
+.trust-band-approved h2{
+  color:var(--type-display) !important;
+}
+
+/* 2. Secondary headings: deliberately different hue, not a near-navy. */
+.approved-card h3,
+.choice h3,
+.editorial-row h3,
+.step h3,
+.belief-approved h3,
+.trust-item-approved h3,
+.assess-top b,
+.profile-head-approved b,
+.profile-head b,
+.system-stream h3{
+  color:var(--type-secondary) !important;
+}
+
+/* 3. Body/supporting copy: visibly lighter than headings. */
+.approved-copy,
+.approved-card p,
+.editorial-copy,
+.journey-head p,
+.step p,
+.assess-copy p,
+.mandate p,
+.example-copy-approved p,
+.about-lead-approved p,
+.belief-approved p,
+.trust-item-approved p,
+.reassure-approved,
+.choice p{
+  color:var(--type-body) !important;
+}
+
+/* 4. Content/data inside intelligence models: stronger than prose, quieter than headings. */
+.signal div,
+.metric-approved div,
+.metric div,
+.dimension em{
+  color:var(--type-body-strong) !important;
+}
+
+/* 5. Metadata and field names deliberately recede. */
+.signal label,
+.dimension label,
+.metric-approved label,
+.metric label{
+  color:var(--type-meta) !important;
+}
+
+/* 6. Accent language is reserved for labels, indices and signals. */
+.kicker,
+.step .n,
+.belief-approved .num,
+.assess-top span,
+.profile-head-approved span,
+.profile-head span,
+.approved-flow b{
+  color:var(--type-gold) !important;
+}
+
+/* Links should read as actions, not body copy. */
+.text-link{
+  color:var(--type-secondary) !important;
+}
+.text-link .arrow{
+  color:var(--type-gold) !important;
+}
+
+/* Dark-background hierarchy. */
+.section-navy h2,
+.section-navy h3,
+.filter-system h2{
+  color:#fff !important;
+}
+.section-navy p:not(.eyebrow-light):not(.kicker),
+.filter-system .intro{
+  color:rgba(255,255,255,.72) !important;
+}
+.section-navy .eyebrow-light,
+.filter-system .eyebrow-light{
+  color:var(--type-gold-bright) !important;
+}
+.section-navy .system-node,
+.band{
+  color:rgba(255,255,255,.68) !important;
+}
+.section-navy .system-node strong,
+.band strong{
+  color:#fff !important;
+}
+.b5{
+  color:var(--type-display) !important;
+}
+
+/* Hero typography remains intentionally high-contrast and photographic. */
+.hero-shell h1,
+.hero-shell h2,
+.hero-shell h3{
+  color:#fff !important;
+}
+.hero-shell p:not(.eyebrow-light){
+  color:rgba(255,255,255,.84) !important;
+}
+.hero-shell .eyebrow-light{
+  color:var(--type-gold-bright) !important;
+}
+
+/* Footer is its own dark hierarchy. */
+footer .footer-label{color:var(--type-gold-bright) !important}
+footer .footer-links{color:rgba(255,255,255,.72) !important}
