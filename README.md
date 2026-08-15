@@ -1,38 +1,35 @@
-# Azael Public Website v1
+# Azael Website
 
-Production-oriented Next.js implementation of the approved Azael public website.
-
-## Routes
-- `/` — Home
-- `/enterprise-intelligence`
-- `/capital-intelligence`
-- `/how-azael-works`
-- `/about`
-- `/explore-the-fit`
-- `/privacy` and `/terms` — launch placeholders
-
-The deeper **Prepare for Capital** and **Access Quality Pipeline** journeys are intentionally not implemented yet.
+Initial production scaffold for the Azael public website.
 
 ## Stack
-- Next.js 16
-- React 19
+- Next.js 16.2.11 (Active LTS at project start)
+- React 19.2
 - TypeScript
-- Tailwind CSS 4
-- `next/font` for Poppins + Inter
+- Tailwind CSS 4.3
+- Poppins (display) + Inter (body/interface) via `next/font`
+
+## Implemented in this milestone
+- Azael design tokens and global typography
+- Responsive global header/navigation
+- Responsive global footer
+- Homepage hero
+- Simplified enterprise/capital intelligence bridge
+- Enterprise and capital-provider pathway section
+- Responsive/mobile behavior and reduced-motion baseline
+
+## Assets
+`public/images/home-hero-placeholder.jpg` is a temporary crop derived from the approved visual concept. Replace it with the final production, rights-cleared landscape asset before launch.
 
 ## Run locally
 ```bash
 npm install
 npm run dev
 ```
-Then open `http://localhost:3000`.
 
-## Production assets
-The current landscape hero assets are cropped from the approved Azael design concepts generated during the design process. They are local, optimized JPGs and can be swapped later without changing page structure.
-
-## Deployment
-Designed for Vercel. After dependencies install successfully:
-```bash
-npm run build
-```
-Then deploy the repository to Vercel.
+## Next build milestone
+- Enterprise Intelligence page
+- Capital Intelligence page
+- How Azael Works
+- About
+- Explore the Fit

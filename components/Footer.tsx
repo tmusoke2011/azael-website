@@ -1,39 +1,7 @@
-import Link from "next/link";
-import { Wordmark } from "./Wordmark";
-
-const links = [
-  ["Enterprise Intelligence", "/enterprise-intelligence"],
-  ["Capital Intelligence", "/capital-intelligence"],
-  ["How Azael Works", "/how-azael-works"],
-  ["About", "/about"],
-] as const;
-
-export function Footer() {
-  return (
-    <footer className="border-t-2 border-azael-gold bg-azael-navy-deep text-white">
-      <div className="container-page py-16 md:py-20">
-        <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-[1.25fr_2fr_1fr] md:gap-8">
-          <div>
-            <Wordmark inverse />
-            <p className="mt-4 text-sm text-white/65">Enterprise &amp; Capital Intelligence</p>
-            <p className="mt-5 text-sm font-medium text-azael-gold-bright">See clearly. Decide well.</p>
-          </div>
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-white/75">
-            {links.map(([label, href]) => <Link key={href} href={href} className="hover:text-white">{label}</Link>)}
-          </nav>
-          <div className="flex gap-6 text-sm text-white/75 md:justify-end">
-            <a href="https://www.linkedin.com" rel="noreferrer" target="_blank" className="hover:text-white">LinkedIn</a>
-            <span>Email</span>
-          </div>
-        </div>
-        <div className="flex flex-col gap-5 pt-8 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>© Azael Consulting 2026</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white">Privacy</Link>
-            <Link href="/terms" className="hover:text-white">Terms</Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
+import Link from "next/link"; import {Wordmark} from "./Wordmark";
+export function Footer(){return <footer className="bg-azael-navy-deep text-white"><div className="container-page py-16 md:py-20">
+<div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-[1.1fr_2fr]"><div><Wordmark inverse/><p className="mt-5 max-w-xs text-sm leading-6 text-white/65">Better understanding between businesses and capital.</p></div>
+<div className="grid gap-8 sm:grid-cols-3"><div><p className="footer-label">EXPLORE</p><div className="footer-links"><Link href="/for-businesses">For Businesses</Link><Link href="/for-capital-providers">For Capital Providers</Link><Link href="/how-azael-works">How Azael Works</Link><Link href="/about">About</Link></div></div>
+<div><p className="footer-label">CONTACT</p><div className="footer-links"><a href="mailto:hello@azael.com">Email</a><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></div></div>
+<div><p className="footer-label">LEGAL</p><div className="footer-links"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></div></div></div>
+<div className="flex flex-col gap-4 pt-8 text-xs text-white/45 sm:flex-row sm:justify-between"><p>© Azael Consulting 2026</p><p>Built in Africa. Building for African markets.</p></div></div></footer>}

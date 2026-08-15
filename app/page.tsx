@@ -1,44 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Arrow } from "@/components/Arrow";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-
-export default function HomePage() {
-  return <>
-    <section className="hero-shell">
-      <Header inverse />
-      <Image src="/images/home-hero.jpg" alt="Mountain horizon at sunrise" fill priority className="hero-image" sizes="100vw" />
-      <div className="container-page hero-content">
-        <div className="max-w-[760px]">
-          <h1 className="home-title">The intelligence layer <span>between enterprise and capital.</span></h1>
-          <div className="gold-rule mt-8" />
-          <p className="home-copy">Azael helps ambitious enterprises understand what must change to grow and what capital fits their journey—while helping capital providers identify enterprises aligned with their mandates.</p>
-          <Link href="/explore-the-fit" className="primary-cta mt-10">Explore the Fit <Arrow className="h-4 w-4" /></Link>
-        </div>
-      </div>
-    </section>
-
-    <section className="site-section bg-azael-cream">
-      <div className="container-page">
-        <div className="section-intro"><h2>We build intelligence on both sides of the capital relationship.</h2><p>So enterprises and investors can make better-informed decisions about fit.</p></div>
-        <div className="home-bridge">
-          <div className="bridge-side"><p>ENTERPRISES</p><ul><li>Growth ambition</li><li>Enterprise reality</li><li>Growth readiness</li><li>Capital readiness</li></ul></div>
-          <div className="bridge-center"><div className="wordmark">AZAEL</div><span>INTELLIGENCE</span></div>
-          <div className="bridge-side"><p>CAPITAL PROVIDERS</p><ul><li>Mandate</li><li>Requirements</li><li>Instrument</li><li>Investment criteria</li></ul></div>
-        </div>
-        <p className="bridge-outcome">Intelligence <b>→</b> Fit <b>→</b> Decision</p>
-      </div>
-    </section>
-
-    <section className="site-section bg-white">
-      <div className="container-page"><h2 className="section-heading text-center">Better intelligence. Better fit.</h2>
-        <div className="audience-grid">
-          <article><p className="eyebrow">FOR ENTERPRISES</p><h3>Understand what growth requires.</h3><p>Diagnose the enterprise. Understand readiness. Determine the capital that fits.</p><Link href="/enterprise-intelligence" className="text-link">Enterprise Intelligence <Arrow className="arrow h-4 w-4" /></Link></article>
-          <article><p className="eyebrow">FOR CAPITAL PROVIDERS</p><h3>Find enterprises that fit your mandate.</h3><p>Turn your mandate into intelligence that helps identify relevant enterprises.</p><Link href="/capital-intelligence" className="text-link">Capital Intelligence <Arrow className="arrow h-4 w-4" /></Link></article>
-        </div>
-      </div>
-    </section>
-    <Footer />
-  </>;
-}
+import Image from "next/image"; import Link from "next/link"; import {Header} from "@/components/Header"; import {Footer} from "@/components/Footer"; import {Arrow} from "@/components/Arrow";
+export default function Home(){return <main>
+<section className="hero-shell"><Image src="/images/home-hero.jpg" alt="" fill priority sizes="100vw" className="hero-image"/><Header inverse/><div className="container-page hero-content"><div className="max-w-[800px]"><p className="eyebrow-light">AZAEL</p><h1 className="display-balance font-display text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[1.04] tracking-[-0.055em]">Better understanding between businesses and capital.</h1><p className="mt-7 text-[clamp(1.15rem,1.7vw,1.45rem)] font-semibold leading-[1.5]">Azael is the intelligence layer that makes that possible.</p><p className="body-pretty mt-6 max-w-[750px] text-[clamp(1rem,1.35vw,1.14rem)] leading-[1.7] text-white/82">We help businesses understand what their growth ambitions require, how ready they are for capital, and what capital fits their journey. We help capital providers understand which businesses genuinely fit their mandates.</p></div></div></section>
+<section className="section section-cream"><div className="container-page choice-grid"><article className="choice"><p className="kicker">FOR BUSINESSES</p><h3>Understand what growth requires—and what capital fits.</h3><Link className="text-link" href="/for-businesses">Explore Your Capital Path <Arrow className="arrow h-4 w-4"/></Link></article><article className="choice"><p className="kicker">FOR CAPITAL PROVIDERS</p><h3>Find businesses that genuinely fit your mandate.</h3><Link className="text-link" href="/for-capital-providers">Find Businesses That Fit <Arrow className="arrow h-4 w-4"/></Link></article></div></section>
+<section className="section section-navy"><div className="container-page"><p className="eyebrow-light">HOW AZAEL WORKS</p><h2 className="max-w-3xl font-display text-[clamp(2.3rem,4.8vw,4rem)] font-semibold leading-[1.08] tracking-[-.045em]">Understanding comes before fit.</h2><div className="system-grid"><div className="system-stream"><p className="eyebrow-light">BUSINESS</p><h3>Start with ambition.</h3>{[["Growth ambition","Where next?"],["Requirements","What will it take?"],["Readiness","What must be true?"],["Capital path","What capital fits?"]].map(([a,b])=><div key={a} className="system-node"><span>{a}</span><strong>{b}</strong></div>)}</div><div className="fit-core"><span className="kicker">AZAEL</span><b>Capital Fit</b></div><div className="system-stream"><p className="eyebrow-light">CAPITAL</p><h3>Start with mandate.</h3>{[["Mandate","What are you seeking?"],["Criteria","What qualifies?"],["Requirements","What must be present?"],["Appetite","What genuinely fits?"]].map(([a,b])=><div key={a} className="system-node"><span>{a}</span><strong>{b}</strong></div>)}</div></div></div></section>
+<section className="section"><div className="container-page"><p className="kicker">WHY AZAEL</p><h2 className="editorial-title mt-4">Capital should follow understanding.</h2><p className="editorial-copy mt-8">Businesses need clarity on what their growth ambitions require. Capital providers need clearer intelligence on which businesses genuinely fit their mandates. <strong className="text-azael-navy">Azael brings that intelligence together before capital moves.</strong></p></div></section>
+<section className="section section-cream"><div className="container-page grid gap-12 md:grid-cols-[.8fr_1.2fr] md:items-center"><div><p className="kicker">GROWTH INTELLIGENCE</p><h2 className="editorial-title mt-4">Make the business easier to understand.</h2><p className="editorial-copy mt-6">Azael turns a growth ambition into structured intelligence about what the journey requires and the role capital should play.</p></div><div className="profile"><div className="profile-head"><b>Growth Intelligence</b><span>EXPLANATORY MODEL</span></div><div className="metric"><label>Ambition</label><div>Where the business is trying to go.</div></div><div className="metric"><label>Requirements</label><div>What capabilities and resources the journey requires.</div></div><div className="metric"><label>Readiness</label><div>What is established and what still needs to strengthen.</div></div><div className="metric"><label>Capital path</label><div>The role, timing and form of capital that fits.</div></div></div></div></section>
+<section className="section"><div className="container-page"><h2 className="editorial-title">Know what fits before capital moves.</h2><div className="choice-grid"><article className="choice"><p className="kicker">FOR BUSINESSES</p><p className="editorial-copy">Understand what your growth ambition requires, how ready you are for capital, and what capital fits the journey.</p><Link className="text-link mt-5" href="/for-businesses">Explore Your Capital Path <Arrow className="arrow h-4 w-4"/></Link></article><article className="choice"><p className="kicker">FOR CAPITAL PROVIDERS</p><p className="editorial-copy">Turn your mandate into a clearer view of the businesses that genuinely fit it.</p><Link className="text-link mt-5" href="/for-capital-providers">Find Businesses That Fit <Arrow className="arrow h-4 w-4"/></Link></article></div></div></section><Footer/></main>}

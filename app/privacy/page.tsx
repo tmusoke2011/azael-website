@@ -1,2 +1,1 @@
-import { Header } from "@/components/Header"; import { Footer } from "@/components/Footer";
-export default function Page(){return <><Header/><main className="legal-page container-page"><h1>Privacy</h1><p>Privacy content will be finalized before launch.</p></main><Footer/></>}
+import {Header} from "@/components/Header";import {Footer} from "@/components/Footer";export default function Page(){return <main><section className="section pt-32 md:pt-40"><Header/><div className="container-page"><h1 className="editorial-title">Privacy</h1><p className="editorial-copy mt-7">This page will be finalised before public launch.</p></div></section><Footer/></main>}

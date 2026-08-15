@@ -1,33 +1,19 @@
 import Image from "next/image";
 import { Header } from "./Header";
-import { Arrow } from "./Arrow";
-import Link from "next/link";
 
-type Props = {
-  eyebrow: string;
-  title: React.ReactNode;
-  body: string;
-  image: string;
-  dark?: boolean;
-  cta?: { label: string; href: string };
-};
-
-export function PageHero({ eyebrow, title, body, image, dark = false, cta }: Props) {
-  return (
-    <section className={`page-hero ${dark ? "page-hero-dark" : "page-hero-light"}`}>
-      <Header inverse={dark} />
-      <Image src={image} alt="" fill priority className="page-hero-image" sizes="100vw" />
-      <div className="page-hero-overlay" />
-      <div className="container-page page-hero-content">
-        <p className="eyebrow">{eyebrow}</p>
-        <h1>{title}</h1>
-        <p className="page-hero-copy">{body}</p>
-        {cta && (
-          <Link href={cta.href} className="primary-cta filled-cta">
-            {cta.label}<Arrow className="h-4 w-4" />
-          </Link>
-        )}
+export function PageHero({ image, eyebrow, title, lead, body }: {
+  image: string; eyebrow: string; title: string; lead?: string; body?: string;
+}) {
+  return <section className="hero-shell">
+    <Image src={image} alt="" fill priority sizes="100vw" className="hero-image" />
+    <Header inverse />
+    <div className="container-page hero-content">
+      <div className="max-w-[790px]">
+        <p className="eyebrow-light">{eyebrow}</p>
+        <h1 className="display-balance font-display text-[clamp(2.9rem,6vw,5.25rem)] font-semibold leading-[1.04] tracking-[-0.055em]">{title}</h1>
+        {lead && <p className="mt-7 max-w-[700px] text-[clamp(1.15rem,1.7vw,1.45rem)] font-semibold leading-[1.5] text-white">{lead}</p>}
+        {body && <p className="body-pretty mt-6 max-w-[740px] text-[clamp(1rem,1.35vw,1.14rem)] leading-[1.7] text-white/82">{body}</p>}
       </div>
-    </section>
-  );
+    </div>
+  </section>;
 }
