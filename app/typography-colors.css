@@ -1,4 +1,4 @@
-/* Site-wide typography colour hierarchy: designed for visible, not merely technical, contrast. */
+/* Site-wide typography and label hierarchy. */
 :root{
   --type-display:#071d35;
   --type-secondary:#00635f;
@@ -6,10 +6,25 @@
   --type-body-strong:#354754;
   --type-meta:#929ca4;
   --type-gold:#b87808;
-  --type-gold-bright:#d89214;
 }
 
-/* 1. Major statements: the darkest, most authoritative voice. */
+/* ONE LABEL SYSTEM: same size, weight, tracking and colour everywhere. */
+.kicker,
+.eyebrow-light,
+.approved-card .kicker,
+.choice .kicker,
+.section-navy .kicker,
+.section-navy .eyebrow-light,
+.filter-system .eyebrow-light{
+  font-size:12px !important;
+  line-height:1.2 !important;
+  font-weight:700 !important;
+  letter-spacing:.14em !important;
+  text-transform:uppercase !important;
+  color:var(--type-gold) !important;
+}
+
+/* Major statements. */
 .approved-title,
 .editorial-title,
 .journey-head h2,
@@ -21,7 +36,7 @@
   color:var(--type-display) !important;
 }
 
-/* 2. Secondary headings: deliberately different hue, not a near-navy. */
+/* Secondary/card headings. */
 .approved-card h3,
 .choice h3,
 .editorial-row h3,
@@ -30,14 +45,13 @@
 .trust-item-approved h3,
 .assess-top b,
 .profile-head-approved b,
-.profile-head b,
-.system-stream h3{
+.profile-head b{
   color:var(--type-secondary) !important;
 }
 
-/* 3. Body/supporting copy: visibly lighter than headings. */
+/* Body/supporting copy. */
 .approved-copy,
-.approved-card p,
+.approved-card p:not(.kicker),
 .editorial-copy,
 .journey-head p,
 .step p,
@@ -48,11 +62,11 @@
 .belief-approved p,
 .trust-item-approved p,
 .reassure-approved,
-.choice p{
+.choice p:not(.kicker){
   color:var(--type-body) !important;
 }
 
-/* 4. Content/data inside intelligence models: stronger than prose, quieter than headings. */
+/* Intelligence-model content. */
 .signal div,
 .metric-approved div,
 .metric div,
@@ -60,7 +74,7 @@
   color:var(--type-body-strong) !important;
 }
 
-/* 5. Metadata and field names deliberately recede. */
+/* Metadata and field names. */
 .signal label,
 .dimension label,
 .metric-approved label,
@@ -68,8 +82,7 @@
   color:var(--type-meta) !important;
 }
 
-/* 6. Accent language is reserved for labels, indices and signals. */
-.kicker,
+/* Gold signals outside the unified label system. */
 .step .n,
 .belief-approved .num,
 .assess-top span,
@@ -79,13 +92,9 @@
   color:var(--type-gold) !important;
 }
 
-/* Links should read as actions, not body copy. */
-.text-link{
-  color:var(--type-secondary) !important;
-}
-.text-link .arrow{
-  color:var(--type-gold) !important;
-}
+/* Links are actions. */
+.text-link{color:var(--type-secondary) !important}
+.text-link .arrow{color:var(--type-gold) !important}
 
 /* Dark-background hierarchy. */
 .section-navy h2,
@@ -93,39 +102,37 @@
 .filter-system h2{
   color:#fff !important;
 }
-.section-navy p:not(.eyebrow-light):not(.kicker),
-.filter-system .intro{
-  color:rgba(255,255,255,.72) !important;
-}
-.section-navy .eyebrow-light,
-.filter-system .eyebrow-light{
-  color:var(--type-gold-bright) !important;
-}
 .section-navy .system-node,
 .band{
-  color:rgba(255,255,255,.68) !important;
+  color:rgba(255,255,255,.66) !important;
 }
 .section-navy .system-node strong,
 .band strong{
   color:#fff !important;
 }
-.b5{
-  color:var(--type-display) !important;
+.filter-system .intro{
+  color:rgba(255,255,255,.70) !important;
 }
+.b5{color:var(--type-display) !important}
 
-/* Hero typography remains intentionally high-contrast and photographic. */
-.hero-shell h1,
-.hero-shell h2,
-.hero-shell h3{
+/* Hero hierarchy: four clearly distinct roles. */
+.hero-shell h1{
   color:#fff !important;
 }
-.hero-shell p:not(.eyebrow-light){
-  color:rgba(255,255,255,.84) !important;
+.hero-shell .hero-lead{
+  color:rgba(255,255,255,.88) !important;
 }
-.hero-shell .eyebrow-light{
-  color:var(--type-gold-bright) !important;
+.hero-shell .hero-body{
+  color:rgba(255,255,255,.66) !important;
 }
 
-/* Footer is its own dark hierarchy. */
-footer .footer-label{color:var(--type-gold-bright) !important}
-footer .footer-links{color:rgba(255,255,255,.72) !important}
+/* Footer hierarchy. */
+footer .footer-label{
+  font-size:12px !important;
+  line-height:1.2 !important;
+  font-weight:700 !important;
+  letter-spacing:.14em !important;
+  text-transform:uppercase !important;
+  color:var(--type-gold) !important;
+}
+footer .footer-links{color:rgba(255,255,255,.70) !important}
