@@ -10,13 +10,19 @@
 }
 
 /* ONE LABEL SYSTEM: same size, weight, tracking and colour everywhere. */
-.kicker,
-.eyebrow-light,
-.approved-card .kicker,
-.choice .kicker,
-.section-navy .kicker,
-.section-navy .eyebrow-light,
-.filter-system .eyebrow-light{
+html body .kicker,
+html body .eyebrow-light,
+html body .approved-card .kicker,
+html body .choice .kicker,
+html body .section-navy .kicker,
+html body .section-navy .eyebrow-light,
+html body .filter-system .eyebrow-light,
+html body .example-copy-approved .kicker,
+html body .assess-copy .kicker,
+html body .mandate .kicker,
+html body .trust-band-approved .kicker,
+html body .approved-section .kicker,
+html body .intel-example-approved .kicker{
   font-size:12px !important;
   line-height:1.2 !important;
   font-weight:700 !important;
@@ -37,7 +43,7 @@
   color:var(--type-display) !important;
 }
 
-/* Secondary/card headings: neutral slate-navy, not teal. */
+/* Secondary/card headings. */
 .approved-card h3,
 .choice h3,
 .editorial-row h3,
@@ -56,9 +62,9 @@
 .editorial-copy,
 .journey-head p,
 .step p,
-.assess-copy p,
-.mandate p,
-.example-copy-approved p,
+.assess-copy p:not(.kicker),
+.mandate p:not(.kicker),
+.example-copy-approved p:not(.kicker),
 .about-lead-approved p,
 .belief-approved p,
 .trust-item-approved p,
@@ -93,7 +99,7 @@
   color:var(--type-gold) !important;
 }
 
-/* ACTION LINKS: gold again, with visible underline cue. */
+/* ACTION LINKS: gold with visible underline cue. */
 .text-link{
   color:var(--type-gold) !important;
   font-weight:700 !important;
