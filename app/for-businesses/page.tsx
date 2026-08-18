@@ -48,12 +48,12 @@ export default function ForBusinessesPage() {
         </div>
       </section>
 
-      <section className="journey approved-alt">
+      <section className="journey !bg-azael-cream">
         <div className="container-page">
           <div className="journey-head">
             <div>
               <p className="kicker mb-4">ENTERPRISE DISCOVERY</p>
-              <h2>Start with Enterprise Discovery.</h2>
+              <h2 className="!text-[clamp(2.25rem,4.5vw,3.65rem)] !leading-[1.08] !tracking-[-.04em]">Start with Enterprise Discovery.</h2>
             </div>
             <p>Enterprise Discovery is a focused first step—not an exhaustive funding application. Azael begins with a light intake and focused conversation.</p>
           </div>
@@ -73,7 +73,7 @@ export default function ForBusinessesPage() {
         <div className="container-page assess-shell">
           <div className="assess-copy">
             <p className="kicker">THE ENTERPRISE DISCOVERY BRIEF</p>
-            <h2>Leave with a clearer understanding of what comes next.</h2>
+            <h2 className="!text-[clamp(2.25rem,4.5vw,3.65rem)] !leading-[1.08] !tracking-[-.04em]">Leave with a clearer understanding of what comes next.</h2>
             <p>The Brief records Azael's initial understanding and prescribes the intelligence that should be built next.</p>
             <p>It is not a funding application, investment-readiness certificate or due-diligence report.</p>
           </div>
