@@ -67,7 +67,7 @@ export default function Home() {
           <div className="example-copy-approved">
             <p className="kicker">ENTERPRISE DISCOVERY</p>
             <h2>Begin lightly. Understand what matters.</h2>
-            <p>Conventional applications often begin in the provider&apos;s language. Azael begins earlier—with how the business operates, the journey management is pursuing and what may stand in its way. A light intake and focused conversation produce an initial Strategic Judgment and identify the intelligence that should be built next.</p>
+            <p>Azael begins with a light intake and focused conversation to understand how the business operates, what management is trying to achieve and what may stand in the way. This produces an initial Strategic Judgment and identifies the intelligence that should be built next.</p>
           </div>
           <div className="profile-approved">
             <div className="profile-head-approved">
