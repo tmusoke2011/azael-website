@@ -95,7 +95,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-navy">
+      <section className="section-navy py-20 md:py-24">
         <div className="container-page">
           <p className="eyebrow-light">WHERE THE INTELLIGENCE CAN LEAD</p>
           <h2 className="max-w-3xl font-display text-[clamp(2.3rem,4.8vw,4rem)] font-semibold leading-[1.08] tracking-[-.045em]">
@@ -104,7 +104,7 @@ export default function Home() {
           <p className="mt-6 max-w-3xl text-[1.02rem] leading-7 text-white/70">
             Enterprise Discovery is the starting point for Enterprise Intelligence. Azael is developing a system designed to build on that understanding, relate it to what capital providers finance and require, and explain where alignment may or may not exist.
           </p>
-          <Link className="text-link mt-8" href="/how-azael-works">
+          <Link className="text-link mt-8 !text-white" href="/how-azael-works">
             Explore how Azael works <Arrow className="arrow h-4 w-4" />
           </Link>
         </div>
