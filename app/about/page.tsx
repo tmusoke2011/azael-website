@@ -19,18 +19,18 @@ const principles = [
   ],
   [
     "02 · PRINCIPLE",
-    "Diagnosis before prescription.",
-    "The role of capital should follow from the enterprise journey, the main constraint and what the business actually needs to accomplish.",
+    "Understand the need before deciding the solution.",
+    "Capital's role should be based on what the business is trying to achieve, what is holding it back and what the money must accomplish.",
   ],
   [
     "03 · PRINCIPLE",
     "Evidence built progressively.",
-    "Request information and analysis when they serve a decision, while keeping clear what is reported, observed, documented, verified, inferred or judged.",
+    "Ask for evidence when it serves a clear decision, and distinguish between what management says, what the evidence shows and what Azael concludes.",
   ],
   [
     "04 · PRINCIPLE",
     "Alignment should be explained.",
-    "Potential fit should show where an enterprise need and a provider mandate may align, where they may not, and what remains uncertain.",
+    "Potential alignment should show how the business's need compares with what the provider finances and requires, including what does not fit and what remains unclear.",
   ],
 ] as const;
 
@@ -66,13 +66,13 @@ export default function AboutPage() {
       <section className="about-editorial-approved">
         <div className="container-page">
           <div className="about-lead-approved">
-            <h2>Azael exists to change the economics of understanding enterprises.</h2>
+            <h2>Azael exists to make useful enterprise understanding easier to build, strengthen and reuse.</h2>
             <div>
               <p>
-                Understanding an enterprise can require repeated conversations, applications and analysis before either side knows whether a capital discussion is worth pursuing.
+                Azael starts with Enterprise Discovery—a focused process that builds an initial understanding of the business and identifies what should be understood next.
               </p>
               <p className="mt-5">
-                Azael begins with Enterprise Discovery and is building toward Enterprise Intelligence that can deepen over time, support an informed initial judgment and be shared for a defined purpose with the enterprise&apos;s authorization.
+                We are developing a system through which that understanding can be strengthened over time and, with the enterprise&apos;s permission, used for a specific capital conversation.
               </p>
             </div>
           </div>
@@ -113,10 +113,10 @@ export default function AboutPage() {
           <p className="kicker">WHAT WE ARE BUILDING</p>
           <h2 className="approved-title mt-4">Enterprise Discovery today. Reusable intelligence over time.</h2>
           <p className="approved-copy mt-7">
-            Today, Enterprise Discovery develops initial Enterprise Intelligence, an Initial Strategic Judgment, an Enterprise Discovery Brief and a clear view of what should be understood next.
+            Today, Enterprise Discovery gives a business an initial understanding, Azael&apos;s first judgment about what matters most, a concise Discovery Brief and a clear next step.
           </p>
           <p className="approved-copy mt-5">
-            Azael is building toward reusable Enterprise Intelligence that can be related to what capital providers finance and require, helping explain potential Capital Fit and support an authorized provider introduction where appropriate.
+            Azael is building a system that can strengthen and reuse this understanding, relate it to what capital providers finance and require, and explain where alignment may—or may not—exist. Where appropriate, this may support an introduction made with the enterprise&apos;s authorization.
           </p>
           <Link href="/how-azael-works" className="text-link mt-8">
             See How Azael Works <Arrow className="arrow h-4 w-4" />
