@@ -1,10 +1,117 @@
-import type {Metadata} from "next";import Link from "next/link";import {PageHero} from "@/components/PageHero";import {Footer} from "@/components/Footer";import {Arrow} from "@/components/Arrow";
-export const metadata:Metadata={title:"For Businesses — Find the Capital Path That Fits",description:"Azael helps African businesses understand what growth requires, assess capital readiness and identify capital that fits the journey.",alternates:{canonical:"/for-businesses"}};
-const dims=[["Growth ambition",78,"Clear"],["Commercial model",66,"Established"],["Operating capacity",52,"Developing"],["Capital readiness",43,"Needs work"],["Capital path",71,"Taking shape"]];
-export default function Page(){return <main><PageHero image="https://pbs.twimg.com/media/FeIW5bpWQAE8kUH.jpg" eyebrow="FOR BUSINESSES" title="Find the capital path that fits where your business is going." body="Growth capital should begin with a clear understanding of the ambition behind it. Azael helps you understand what your growth plans require, how ready your business is for capital, and what capital fits the journey."/>
-<section className="approved-section"><div className="container-page"><h2 className="approved-title">Your growth ambition should shape your capital—not the other way around.</h2><p className="approved-copy mt-7">Capital is most useful when it is aligned with what the business is actually trying to achieve. Before determining how much capital to raise—or who to raise it from—Azael looks at the growth ambition itself: where the business is going, what getting there will require, and what needs to be true for capital to support that journey effectively.</p></div></section>
-<section className="journey"><div className="container-page"><div className="journey-head"><h2>Start with your growth ambition.</h2><p>The Azael Growth Assessment turns where you want to go into a clearer understanding of what it will take to get there. We look at the business as it is today, the ambition ahead of it, and the capabilities, economics and conditions required to make that ambition achievable.</p></div><div className="steps">{[["01","Where are you going?","Clarify the growth ambition and what success would actually look like."],["02","What will it take?","Identify the capabilities, resources and changes required to achieve that ambition."],["03","How ready are you?","Assess whether the business has the foundations and evidence to execute the plan and absorb external capital effectively."],["04","What should capital do?","Determine the role capital should play—how much may be required, when it is needed, and what form best supports the journey."]].map(([n,h,p])=><div className="step" key={n}><div className="n">{n}</div><h3>{h}</h3><p>{p}</p></div>)}</div></div></section>
-<section className="assessment"><div className="container-page assess-shell"><div className="assess-copy"><p className="kicker">THE AZAEL GROWTH ASSESSMENT</p><h2>You leave with a clearer capital path.</h2><p>The assessment builds actionable Growth Intelligence around growth requirements, readiness gaps, capital needs and appropriate capital structures.</p><p>From there, Azael can determine whether the business is ready to move toward suitable capital providers—or what needs to happen first.</p></div><div className="assess-panel"><div className="assess-top"><b>Growth Intelligence</b><span>EXPLANATORY MODEL</span></div>{dims.map(([a,b,c],i)=><div className="dimension" key={String(a)}><label>{a}</label><div className="track"><div className={`fill ${i===4?"gold":""}`} style={{width:`${b}%`}}/></div><em>{c}</em></div>)}</div></div></section>
-<section className="approved-section"><div className="container-page"><h2 className="approved-title">Shape the capital around the journey.</h2><p className="approved-copy mt-7">Once Azael understands the growth ambition and what it requires, we can determine the role capital should play: how much is required, when it is needed, what form it should take, and what characteristics a suitable capital provider should have.</p><div className="approved-flow"><span>Growth ambition</span><b>→</b><span>Growth requirements</span><b>→</b><span>Readiness</span><b>→</b><span>Capital need</span><b>→</b><span>Capital structure</span><b>→</b><span>Provider fit</span></div></div></section>
-<section className="approved-section approved-alt"><div className="container-page"><h2 className="approved-title">Find capital that fits.</h2><p className="approved-copy mt-7">Azael uses your Growth Intelligence and capital path to identify capital providers whose mandates align with what your business actually requires.</p><div className="approved-grid2"><article className="approved-card"><h3>Not every investor is the right investor.</h3><p>Fit depends on more than ticket size. It includes mandate, stage, structure, time horizon, sector appetite, growth expectations and what the capital provider needs to see in the business.</p></article><article className="approved-card"><h3>Move forward with context already established.</h3><p>Where genuine alignment exists, Azael can bring the two sides together from a position of greater understanding—rather than beginning with a cold introduction and a pitch deck.</p></article></div></div></section>
-<section className="approved-section"><div className="container-page"><h2 className="approved-title">Build the capital path your growth actually requires.</h2><p className="approved-copy mt-7">Start with your growth ambition. Azael will help you understand what it requires, how ready your business is for capital, and what capital fits the journey.</p><Link href="/explore-the-fit" className="text-link mt-8">Start Your Growth Assessment <Arrow className="arrow h-4 w-4"/></Link><p className="approved-copy mt-5"><strong>Where the fit is real, that intelligence becomes the foundation for moving toward capital.</strong></p></div></section><Footer/></main>}
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Arrow } from "@/components/Arrow";
+import { Footer } from "@/components/Footer";
+import { PageHero } from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "For Businesses — Start with Enterprise Discovery",
+  description: "Enterprise Discovery helps established African businesses understand what their journey requires, the responsible role of capital and what must be understood next.",
+  alternates: { canonical: "/for-businesses" },
+};
+
+const discoveryQuestions = [
+  ["01", "How does the business actually work?", "Build an initial understanding of the operating reality, commercial activity and capabilities already in place."],
+  ["02", "What journey are you pursuing?", "Clarify the transition management is seeking and what a credible outcome would require."],
+  ["03", "What is standing in the way?", "Identify the decisive constraint or question that must be understood before the business moves forward."],
+  ["04", "What role should capital play?", "Determine what capital should accomplish—and whether capital is the responsible response at this stage."],
+] as const;
+
+const briefContents = [
+  ["Enterprise today", "How Azael currently understands the business and its operating reality."],
+  ["Intended transition", "The journey management is pursuing and the change it is trying to create."],
+  ["Strategic Judgment", "Azael's initial judgment about what matters most at this stage."],
+  ["Decisive question", "The question that must be resolved before the capital pathway becomes clearer."],
+  ["What remains uncertain", "The limits of the current understanding and where additional evidence may be required."],
+  ["Next intelligence", "What needs to be understood or evidenced next, and why."],
+] as const;
+
+export default function ForBusinessesPage() {
+  return (
+    <main>
+      <PageHero
+        image="https://pbs.twimg.com/media/FeIW5bpWQAE8kUH.jpg"
+        eyebrow="FOR BUSINESSES"
+        title="Understand what your journey requires before you pursue capital."
+        lead="Azael works with established African businesses whose operating reality, transition and capital requirements cannot be understood through a conventional application alone."
+        body="Enterprise Discovery helps you clarify what the journey requires, determine the responsible role of capital and identify what must be understood next."
+        primaryAction={{ href: "/explore-the-fit", label: "Start Enterprise Discovery" }}
+      />
+
+      <section className="approved-section">
+        <div className="container-page">
+          <p className="kicker">WHO IT IS FOR</p>
+          <h2 className="approved-title mt-4">For businesses already creating value.</h2>
+          <p className="approved-copy mt-7">
+            Enterprise Discovery is designed for established businesses with customers and real commercial activity that are navigating a defined growth, expansion, professionalisation, recovery or transformation journey.
+          </p>
+        </div>
+      </section>
+
+      <section className="journey approved-alt">
+        <div className="container-page">
+          <div className="journey-head">
+            <div>
+              <p className="kicker mb-4">ENTERPRISE DISCOVERY</p>
+              <h2>Start with Enterprise Discovery.</h2>
+            </div>
+            <p>Enterprise Discovery is a focused first step—not an exhaustive funding application. Azael begins with a light intake and focused conversation.</p>
+          </div>
+          <div className="steps">
+            {discoveryQuestions.map(([number, heading, copy]) => (
+              <article className="step" key={number}>
+                <div className="n">{number}</div>
+                <h3>{heading}</h3>
+                <p>{copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="assessment !bg-white">
+        <div className="container-page assess-shell">
+          <div className="assess-copy">
+            <p className="kicker">THE ENTERPRISE DISCOVERY BRIEF</p>
+            <h2>Leave with a clearer understanding of what comes next.</h2>
+            <p>The Brief records Azael's initial understanding and prescribes the intelligence that should be built next.</p>
+            <p>It is not a funding application, investment-readiness certificate or due-diligence report.</p>
+          </div>
+          <div className="assess-panel">
+            <div className="profile-head-approved">
+              <b>Enterprise Discovery Brief</b>
+              <span>WHAT IT EXPLAINS</span>
+            </div>
+            {briefContents.map(([label, copy]) => (
+              <div className="metric-approved" key={label}>
+                <label>{label}</label>
+                <div>{copy}</div>
+              </div>
+            ))}
+            <p className="reassure-approved">The Brief makes the current judgment, uncertainty and next questions visible.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="approved-section approved-alt">
+        <div className="container-page">
+          <p className="kicker">AFTER DISCOVERY</p>
+          <h2 className="approved-title mt-4">Build only the intelligence the journey requires.</h2>
+          <p className="approved-copy mt-7">If deeper work is needed, Azael prescribes the next Enterprise Intelligence to build—progressively and for a defined purpose. Evidence is requested as it becomes relevant, not all at once.</p>
+          <div className="approved-flow">
+            <span>Enterprise Discovery</span><b>→</b><span>Initial Strategic Judgment</span><b>→</b><span>Prescribed intelligence</span><b>→</b><span>Potential capital fit</span><b>→</b><span>Consented handoff</span>
+          </div>
+          <div className="mt-12 border-t border-azael-navy/10 pt-8">
+            <h3 className="font-display text-2xl font-semibold text-azael-navy">A clearer path through capital—not a promise of capital.</h3>
+            <p className="approved-copy mt-5">Azael does not guarantee funding or replace provider underwriting. Where suitable alignment exists, Azael can support a consented handoff to a relevant provider, whose own assessment and decision-making remain independent.</p>
+            <Link href="/explore-the-fit" className="text-link mt-7">
+              Start Enterprise Discovery <Arrow className="arrow h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
