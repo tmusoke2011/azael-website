@@ -62,70 +62,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-navy">
-        <div className="container-page">
-          <p className="eyebrow-light">HOW AZAEL WORKS</p>
-          <h2 className="max-w-3xl font-display text-[clamp(2.3rem,4.8vw,4rem)] font-semibold leading-[1.08] tracking-[-.045em]">
-            Understanding comes before fit.
-          </h2>
-          <p className="mt-6 max-w-3xl text-[1.02rem] leading-7 text-white/70">
-            Enterprise Discovery is the starting point for Enterprise Intelligence. Azael is developing a system designed to build on that understanding, relate it to what capital providers finance and require, and explain where alignment may or may not exist.
-          </p>
-          <div className="system-grid">
-            <div className="system-stream">
-              <p className="eyebrow-light">ENTERPRISE</p>
-              <h3>Start with the business.</h3>
-              {[
-                ["Operating reality", "How does the business actually work?"],
-                ["Journey", "What is management trying to achieve?"],
-                ["Strategic Judgment", "What is standing in the way?"],
-                ["Capital requirement", "What should capital accomplish?"],
-              ].map(([label, question]) => (
-                <div key={label} className="system-node">
-                  <span>{label}</span>
-                  <strong>{question}</strong>
-                </div>
-              ))}
-            </div>
-            <div className="fit-core">
-              <span className="kicker">AZAEL</span>
-              <b>Potential Capital Fit</b>
-            </div>
-            <div className="system-stream">
-              <p className="eyebrow-light">CAPITAL</p>
-              <h3>Start with the mandate.</h3>
-              {[
-                ["Mandate", "What do you finance?"],
-                ["Instruments", "How can capital be structured?"],
-                ["Requirements", "What must be present?"],
-                ["Constraints", "What can genuinely fit?"],
-              ].map(([label, question]) => (
-                <div key={label} className="system-node">
-                  <span>{label}</span>
-                  <strong>{question}</strong>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="approved-section">
-        <div className="container-page">
-          <p className="kicker">WHY AZAEL</p>
-          <h2 className="approved-title mt-4">Capital should follow understanding.</h2>
-          <p className="approved-copy mt-8">
-            Conventional applications often ask businesses to present themselves in the provider&apos;s language before anyone has understood how they actually work. <strong>Azael begins earlier—with the enterprise&apos;s operating reality, the journey management is pursuing and the questions that determine whether capital can create value.</strong>
-          </p>
-        </div>
-      </section>
-
       <section className="intel-example-approved">
         <div className="container-page example-shell-approved">
           <div className="example-copy-approved">
             <p className="kicker">ENTERPRISE DISCOVERY</p>
             <h2>Begin lightly. Understand what matters.</h2>
-            <p>Every enterprise is different. Azael uses a light intake and focused conversation to develop an initial Strategic Judgment, identify the decisive question and prescribe the intelligence that should be built next.</p>
+            <p>Conventional applications often begin in the provider&apos;s language. Azael begins earlier—with how the business operates, the journey management is pursuing and what may stand in its way. A light intake and focused conversation produce an initial Strategic Judgment and identify the intelligence that should be built next.</p>
           </div>
           <div className="profile-approved">
             <div className="profile-head-approved">
@@ -153,25 +95,32 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section section-navy">
+        <div className="container-page">
+          <p className="eyebrow-light">WHERE THE INTELLIGENCE CAN LEAD</p>
+          <h2 className="max-w-3xl font-display text-[clamp(2.3rem,4.8vw,4rem)] font-semibold leading-[1.08] tracking-[-.045em]">
+            Understanding comes before fit.
+          </h2>
+          <p className="mt-6 max-w-3xl text-[1.02rem] leading-7 text-white/70">
+            Enterprise Discovery is the starting point for Enterprise Intelligence. Azael is developing a system designed to build on that understanding, relate it to what capital providers finance and require, and explain where alignment may or may not exist.
+          </p>
+          <Link className="text-link mt-8" href="/how-azael-works">
+            Explore how Azael works <Arrow className="arrow h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+
       <section className="approved-section approved-alt">
         <div className="container-page">
           <h2 className="approved-title">A clearer path through capital—not a promise of capital.</h2>
           <p className="approved-copy mt-8">Azael does not guarantee funding or replace provider underwriting. We create a more credible and transparent starting point for the enterprise and a better-informed handoff to suitable providers.</p>
-          <div className="approved-grid2">
-            <article className="approved-card">
-              <p className="kicker">FOR BUSINESSES</p>
-              <p>Enterprise Discovery is designed for established African businesses with customers and real commercial activity navigating growth, professionalisation, recovery or transformation.</p>
-              <Link className="text-link mt-5" href="/explore-the-fit">
-                Start Enterprise Discovery <Arrow className="arrow h-4 w-4" />
-              </Link>
-            </article>
-            <article className="approved-card">
-              <p className="kicker">FOR CAPITAL PROVIDERS</p>
-              <p>Partner with Azael to explore how Enterprise Intelligence can strengthen enterprise discovery, qualification and origination.</p>
-              <Link className="text-link mt-5" href="/for-capital-providers">
-                Explore a Partnership <Arrow className="arrow h-4 w-4" />
-              </Link>
-            </article>
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+            <Link className="text-link" href="/explore-the-fit">
+              Start Enterprise Discovery <Arrow className="arrow h-4 w-4" />
+            </Link>
+            <Link className="text-link" href="/for-capital-providers">
+              Explore a Partnership <Arrow className="arrow h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
