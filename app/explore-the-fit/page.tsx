@@ -1,3 +1,103 @@
-import type {Metadata} from "next";import Link from "next/link";import {Header} from "@/components/Header";import {Footer} from "@/components/Footer";import {Arrow} from "@/components/Arrow";
-export const metadata:Metadata={title:"Explore the Fit — Businesses and Capital Providers",description:"Choose your Azael path: understand your business's capital journey or identify businesses that genuinely fit your capital mandate.",alternates:{canonical:"/explore-the-fit"}};
-export default function Page(){return <main><section className="approved-section pt-32 md:pt-40"><Header/><div className="container-page"><p className="kicker">EXPLORE THE FIT</p><h1 className="approved-title mt-4">Find where you fit.</h1><p className="approved-copy mt-7">Azael works from both sides of the capital relationship. Choose the path that best describes you.</p><div className="approved-grid2 mt-12"><article className="approved-card"><p className="kicker">FOR BUSINESSES</p><h3>I’m building a business.</h3><p>You know where you want the business to go. Azael helps you understand what getting there requires, how ready you are for capital, and what capital fits the journey.</p><Link className="text-link mt-5" href="/for-businesses">Explore Your Capital Path <Arrow className="arrow h-4 w-4"/></Link></article><article className="approved-card"><p className="kicker">FOR CAPITAL PROVIDERS</p><h3>I provide capital.</h3><p>You know what you are looking for. Azael translates your mandate into Capital Intelligence that helps identify businesses genuinely aligned with it.</p><Link className="text-link mt-5" href="/for-capital-providers">Find Businesses That Fit <Arrow className="arrow h-4 w-4"/></Link></article></div><div className="reassure-approved"><strong>Not sure which path applies?</strong> If your organisation both operates businesses and deploys capital, or you are exploring a partnership with Azael, contact us at <a className="text-link" href="mailto:hello@azael.africa">hello@azael.africa</a> and we’ll help you find the right starting point.</div></div></section><Footer/></main>}
+import type { Metadata } from "next";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+
+export const metadata: Metadata = {
+  title: "Start with Azael — Choose the Right Starting Point",
+  description:
+    "Choose how to start with Azael: Enterprise Discovery for established African businesses or a partnership conversation for capital providers.",
+  alternates: { canonical: "/explore-the-fit" },
+};
+
+const businessSteps = [
+  "Complete a short initial form about the business, its goals and what capital may need to accomplish.",
+  "Azael reviews the information and determines whether Enterprise Discovery is an appropriate next step.",
+  "Where appropriate, a focused conversation develops an initial understanding and identifies what should be understood next.",
+] as const;
+
+const providerSteps = [
+  "Tell us about your mandate, markets, instruments and the origination or assessment problem you are trying to solve.",
+  "Azael reviews whether Enterprise Intelligence could support a useful partnership or pilot.",
+  "Where there is a relevant use case, we discuss the information required and how an authorized enterprise handoff should work.",
+] as const;
+
+function NextSteps({ steps }: { steps: readonly string[] }) {
+  return (
+    <ol className="mt-6 border-t border-azael-navy/10">
+      {steps.map((step, index) => (
+        <li className="grid grid-cols-[28px_1fr] gap-3 border-b border-azael-navy/10 py-4 last:border-b-0" key={step}>
+          <span className="text-xs font-bold tracking-wider text-azael-gold">0{index + 1}</span>
+          <span className="text-[15px] leading-6 text-azael-slate">{step}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export default function StartWithAzaelPage() {
+  return (
+    <main>
+      <section className="approved-section pt-32 md:pt-40">
+        <Header />
+        <div className="container-page">
+          <p className="kicker">START WITH AZAEL</p>
+          <h1 className="approved-title mt-4">Choose the right starting point.</h1>
+          <p className="approved-copy mt-7">
+            Azael works with established African businesses and with banks and alternative capital providers. Choose the path that best describes why you are here.
+          </p>
+        </div>
+      </section>
+
+      <section className="approved-section approved-alt">
+        <div className="container-page">
+          <div className="approved-grid2 !mt-0">
+            <article className="approved-card">
+              <p className="kicker">FOR BUSINESSES</p>
+              <h2 className="mt-3 font-display text-[clamp(1.8rem,3vw,2.35rem)] font-semibold leading-tight text-azael-navy">
+                Start with Enterprise Discovery.
+              </h2>
+              <p className="mt-5 text-[16px] leading-7 text-azael-slate">
+                For businesses with customers and active sales that are preparing to grow, expand, strengthen their management and systems, recover or make a major change.
+              </p>
+              <p className="kicker mt-8">WHAT HAPPENS NEXT</p>
+              <NextSteps steps={businessSteps} />
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                <span aria-disabled="true" className="text-link cursor-not-allowed opacity-55">
+                  Start Enterprise Discovery
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-azael-slate">Form coming next</span>
+              </div>
+            </article>
+
+            <article className="approved-card">
+              <p className="kicker">FOR CAPITAL PROVIDERS</p>
+              <h2 className="mt-3 font-display text-[clamp(1.8rem,3vw,2.35rem)] font-semibold leading-tight text-azael-navy">
+                Explore an Enterprise Intelligence partnership.
+              </h2>
+              <p className="mt-5 text-[16px] leading-7 text-azael-slate">
+                For banks and alternative capital providers exploring how structured enterprise understanding could support discovery, qualification or origination.
+              </p>
+              <p className="kicker mt-8">WHAT HAPPENS NEXT</p>
+              <NextSteps steps={providerSteps} />
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                <span aria-disabled="true" className="text-link cursor-not-allowed opacity-55">
+                  Explore a Partnership
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-azael-slate">Form coming next</span>
+              </div>
+            </article>
+          </div>
+
+          <div className="reassure-approved mt-10">
+            <h2 className="font-display text-2xl font-semibold text-azael-navy">A starting point—not a promise of capital or pipeline.</h2>
+            <p className="mt-4 max-w-4xl">
+              Enterprise Discovery is not a funding application or guarantee of funding. A provider enquiry does not create a partnership or a right to access enterprise information. Any future introduction requires appropriate enterprise authorization, and every provider retains its own assessment and final decision.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
