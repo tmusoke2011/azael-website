@@ -69,7 +69,7 @@ export default function Home() {
             Understanding comes before fit.
           </h2>
           <p className="mt-6 max-w-3xl text-[1.02rem] leading-7 text-white/70">
-            AZOS is being built to bring Enterprise Intelligence and Capital Intelligence together so that potential fit can be explained—not guessed.
+            Azael is building a clearer way to connect how a business actually works with what capital providers require, so that potential fit can be explained—not guessed.
           </p>
           <div className="system-grid">
             <div className="system-stream">
