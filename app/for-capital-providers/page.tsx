@@ -31,7 +31,7 @@ export default function ForCapitalProvidersPage() {
       <PageHero
         image="https://www.tunnellingnigeria.org/modern-city-skyline-nigeria-aerial-view-urban-infr.jpg"
         eyebrow="FOR CAPITAL PROVIDERS"
-        title="Understand relevant enterprises without restarting from zero."
+        title="Begin with a structured understanding of the enterprise."
         lead="Azael is building reusable, evidence-aware Enterprise Intelligence for banks and alternative capital providers."
         body="Explore how that intelligence could strengthen enterprise discovery, qualification and origination—without replacing your own assessment or decision-making."
         primaryAction={{ href: "/explore-the-fit", label: "Explore a Partnership" }}
