@@ -66,7 +66,7 @@ export default function Home() {
         <div className="container-page example-shell-approved">
           <div className="example-copy-approved">
             <p className="kicker">ENTERPRISE DISCOVERY</p>
-            <h2>Begin lightly. Understand what matters.</h2>
+            <h2 className="!text-[clamp(2.3rem,4.8vw,4rem)] !leading-[1.08] !tracking-[-.045em]">Begin lightly. Understand what matters.</h2>
             <p>Conventional applications often begin in the provider&apos;s language. Azael begins earlier—with how the business operates, the journey management is pursuing and what may stand in its way. A light intake and focused conversation produce an initial Strategic Judgment and identify the intelligence that should be built next.</p>
           </div>
           <div className="profile-approved">
