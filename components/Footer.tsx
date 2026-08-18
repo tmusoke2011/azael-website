@@ -1,7 +1,48 @@
-import Link from "next/link"; import {Wordmark} from "./Wordmark";
-export function Footer(){return <footer className="bg-azael-navy-deep text-white"><div className="container-page py-16 md:py-20">
-<div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-[1.1fr_2fr]"><div><Wordmark inverse/><p className="mt-5 max-w-xs text-sm leading-6 text-white/65">Better understanding between businesses and capital.</p></div>
-<div className="grid gap-8 sm:grid-cols-3"><div><p className="footer-label">EXPLORE</p><div className="footer-links"><Link href="/for-businesses">For Businesses</Link><Link href="/for-capital-providers">For Capital Providers</Link><Link href="/how-azael-works">How Azael Works</Link><Link href="/about">About</Link></div></div>
-<div><p className="footer-label">CONTACT</p><div className="footer-links"><a href="mailto:hello@azael.africa">Email</a><a href="https://www.linkedin.com/company/azael-africa" target="_blank" rel="noreferrer">LinkedIn</a></div></div>
-<div><p className="footer-label">LEGAL</p><div className="footer-links"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></div></div></div>
-<div className="flex flex-col gap-4 pt-8 text-xs text-white/45 sm:flex-row sm:justify-between"><p>© Azael 2026</p><p>Intelligence for Africa&apos;s businesses and capital markets.</p></div></div></footer>}
+import Link from "next/link";
+import { Wordmark } from "./Wordmark";
+
+export function Footer() {
+  return (
+    <footer className="bg-azael-navy-deep text-white">
+      <div className="container-page py-16 md:py-20">
+        <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-[1.1fr_2fr]">
+          <div>
+            <Wordmark inverse />
+            <p className="mt-5 max-w-xs text-sm leading-6 text-white/65">Capital begins with understanding.</p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-3">
+            <div>
+              <p className="footer-label">EXPLORE</p>
+              <div className="footer-links">
+                <Link href="/for-businesses">For Businesses</Link>
+                <Link href="/for-capital-providers">For Capital Providers</Link>
+                <Link href="/how-azael-works">How Azael Works</Link>
+                <Link href="/about">About</Link>
+              </div>
+            </div>
+            <div>
+              <p className="footer-label">CONTACT</p>
+              <div className="footer-links">
+                <a href="mailto:hello@azael.africa">Email</a>
+                <a href="https://www.linkedin.com/company/azael-africa" target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+            <div>
+              <p className="footer-label">LEGAL</p>
+              <div className="footer-links">
+                <Link href="/privacy">Privacy</Link>
+                <Link href="/terms">Terms</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-4 pt-8 text-xs text-white/45 sm:flex-row sm:justify-between">
+          <p>© Azael 2026</p>
+          <p>Intelligence for Africa&apos;s businesses and capital markets.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
