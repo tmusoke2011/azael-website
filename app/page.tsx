@@ -41,9 +41,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="approved-section approved-alt">
+      <section className="approved-section">
         <div className="container-page approved-grid2">
-          <article className="approved-card">
+          <article className="approved-card !bg-azael-cream">
             <p className="kicker">FOR BUSINESSES</p>
             <h3>Begin with Enterprise Discovery.</h3>
             <p>Understand your business journey, clarify the role capital should play and identify what must be established before approaching suitable providers.</p>
@@ -51,7 +51,7 @@ export default function Home() {
               Start Enterprise Discovery <Arrow className="arrow h-4 w-4" />
             </Link>
           </article>
-          <article className="approved-card">
+          <article className="approved-card !bg-azael-cream">
             <p className="kicker">FOR CAPITAL PROVIDERS</p>
             <h3>Understand relevant enterprises without restarting from zero.</h3>
             <p>Explore how Azael is building reusable, evidence-aware Enterprise Intelligence for banks and alternative capital providers.</p>
