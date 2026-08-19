@@ -26,7 +26,7 @@ export default function StartDiscoveryPage() {
           <p className="approved-copy mt-7">
             This short initial enquiry helps Azael understand the enterprise today, the transition you are pursuing and what capital may need to accomplish.
           </p>
-          <p className="mt-5 text-sm font-semibold uppercase tracking-wider text-azael-slate">Approximately 5–7 minutes · No documents required</p>
+          <p className="mt-5 text-sm font-semibold uppercase tracking-wider text-azael-slate">Guided enquiry · 5 steps · Approximately 5–7 minutes · No documents required</p>
         </div>
       </section>
 
