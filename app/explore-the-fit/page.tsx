@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
@@ -62,10 +63,9 @@ export default function StartWithAzaelPage() {
               <p className="kicker mt-8">WHAT HAPPENS NEXT</p>
               <NextSteps steps={businessSteps} />
               <div className="mt-7 flex flex-wrap items-center gap-3">
-                <span aria-disabled="true" className="text-link cursor-not-allowed opacity-55">
+                <Link className="text-link" href="/start-discovery">
                   Start Enterprise Discovery
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-azael-slate">Form coming next</span>
+                </Link>
               </div>
             </article>
 
