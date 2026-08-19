@@ -34,7 +34,7 @@ export default function ForCapitalProvidersPage() {
         title="Begin with a structured understanding of the enterprise."
         lead="Azael is building reusable, evidence-aware Enterprise Intelligence for banks and alternative capital providers."
         body="Explore how that intelligence could strengthen enterprise discovery, qualification and origination—without replacing your own assessment or decision-making."
-        primaryAction={{ href: "/explore-the-fit", label: "Explore a Partnership" }}
+        primaryAction={{ href: "/explore-a-partnership", label: "Explore a Partnership" }}
       />
 
       <section className="approved-section">
@@ -114,7 +114,7 @@ export default function ForCapitalProvidersPage() {
           <h2 className="approved-title mt-4">Explore how Enterprise Intelligence could strengthen your process.</h2>
           <p className="approved-copy mt-7">A partnership conversation can examine how you currently qualify opportunities, what information matters before a serious assessment, which mandate requirements can be structured and how consented introductions should work.</p>
           <p className="approved-copy mt-5">Azael does not replace underwriting, credit assessment, investment committee decisions or provider judgment. Each provider retains its own requirements, assessment process and final decision.</p>
-          <Link href="/explore-the-fit" className="text-link mt-8">
+          <Link href="/explore-a-partnership" className="text-link mt-8">
             Explore a Partnership <Arrow className="arrow h-4 w-4" />
           </Link>
         </div>

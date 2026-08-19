@@ -16,12 +16,32 @@ export type EnterpriseDiscoverySubmission = {
   consentConfirmed: "Yes";
 };
 
+export type CapitalProviderSubmission = {
+  contactName: string;
+  workEmail: string;
+  role: string;
+  phone: string;
+  organizationName: string;
+  providerType: string;
+  headquartersCountry: string;
+  markets: string;
+  website: string;
+  instruments: string;
+  typicalTicketSize: string;
+  sectorFocus: string;
+  targetBusinessProfile: string;
+  assessmentRequirements: string;
+  originationChallenge: string;
+  partnershipInterest: string;
+  consentConfirmed: "Yes";
+};
+
 type SubmissionResponse = {
   ok?: boolean;
   submissionId?: string;
 };
 
-export async function submitIntakeToSpreadsheet(payload: EnterpriseDiscoverySubmission) {
+async function postIntake(payload: Record<string, string>) {
   const webhookUrl = process.env.AZAEL_INTAKE_WEBHOOK_URL;
   const webhookSecret = process.env.AZAEL_INTAKE_WEBHOOK_SECRET;
 
@@ -57,4 +77,12 @@ export async function submitIntakeToSpreadsheet(payload: EnterpriseDiscoverySubm
   }
 
   return result.submissionId;
+}
+
+export function submitIntakeToSpreadsheet(payload: EnterpriseDiscoverySubmission) {
+  return postIntake({ submissionType: "enterpriseDiscovery", ...payload });
+}
+
+export function submitProviderIntakeToSpreadsheet(payload: CapitalProviderSubmission) {
+  return postIntake({ submissionType: "capitalProvider", ...payload });
 }

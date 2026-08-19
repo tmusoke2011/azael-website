@@ -80,10 +80,9 @@ export default function StartWithAzaelPage() {
               <p className="kicker mt-8">WHAT HAPPENS NEXT</p>
               <NextSteps steps={providerSteps} />
               <div className="mt-7 flex flex-wrap items-center gap-3">
-                <span aria-disabled="true" className="text-link cursor-not-allowed opacity-55">
+                <Link className="text-link" href="/explore-a-partnership">
                   Explore a Partnership
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-azael-slate">Form coming next</span>
+                </Link>
               </div>
             </article>
           </div>

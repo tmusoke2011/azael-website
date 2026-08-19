@@ -1,6 +1,7 @@
 "use strict";
 
 const SUBMISSIONS_SHEET = "Submissions";
+const PROVIDER_ENQUIRIES_SHEET = "Provider Enquiries";
 const TIME_ZONE = "Africa/Kampala";
 
 function jsonResponse(payload) {
@@ -36,7 +37,8 @@ function doPost(event) {
     return jsonResponse({ ok: false, error: "unauthorized" });
   }
 
-  const required = [
+  const submissionType = clean(payload.submissionType, 40) || "enterpriseDiscovery";
+  const enterpriseRequired = [
     "contactName",
     "workEmail",
     "role",
@@ -49,46 +51,65 @@ function doPost(event) {
     "capitalPurpose",
   ];
 
+  const providerRequired = [
+    "contactName",
+    "workEmail",
+    "role",
+    "organizationName",
+    "providerType",
+    "headquartersCountry",
+    "markets",
+    "instruments",
+    "sectorFocus",
+    "targetBusinessProfile",
+    "assessmentRequirements",
+    "originationChallenge",
+    "partnershipInterest",
+  ];
+
+  if (submissionType !== "enterpriseDiscovery" && submissionType !== "capitalProvider") {
+    return jsonResponse({ ok: false, error: "invalid_submission_type" });
+  }
+
+  const required = submissionType === "capitalProvider" ? providerRequired : enterpriseRequired;
   if (required.some(function (field) { return !clean(payload[field]); })) {
     return jsonResponse({ ok: false, error: "missing_fields" });
   }
 
   const now = new Date();
+  const prefix = submissionType === "capitalProvider" ? "CP" : "ED";
   const submissionId = [
-    "ED",
+    prefix,
     Utilities.formatDate(now, TIME_ZONE, "yyyyMMdd-HHmmss"),
     Utilities.getUuid().slice(0, 8).toUpperCase(),
   ].join("-");
 
-  const row = [
-    submissionId,
-    now,
-    "New",
-    "",
-    safeCell(payload.contactName, 120),
-    safeCell(payload.role, 120),
-    safeCell(payload.workEmail, 180),
-    safeCell(payload.phone, 60),
-    safeCell(payload.businessName, 160),
-    safeCell(payload.country, 100),
-    safeCell(payload.sector, 120),
-    safeCell(payload.website, 240),
+  const enterpriseRow = [
+    submissionId, now, "New", "",
+    safeCell(payload.contactName, 120), safeCell(payload.role, 120), safeCell(payload.workEmail, 180), safeCell(payload.phone, 60),
+    safeCell(payload.businessName, 160), safeCell(payload.country, 100), safeCell(payload.sector, 120), safeCell(payload.website, 240),
     payload.activeSales === "Yes" ? "Yes" : "No",
-    safeCell(payload.businessToday, 1200),
-    safeCell(payload.intendedTransition, 1200),
-    safeCell(payload.capitalPurpose, 1200),
-    safeCell(payload.capitalRange, 120),
-    safeCell(payload.capitalTiming, 120),
-    payload.consentConfirmed === "Yes" ? "Yes" : "No",
-    "",
-    "",
+    safeCell(payload.businessToday, 1200), safeCell(payload.intendedTransition, 1200), safeCell(payload.capitalPurpose, 1200),
+    safeCell(payload.capitalRange, 120), safeCell(payload.capitalTiming, 120), payload.consentConfirmed === "Yes" ? "Yes" : "No", "", "",
   ];
+
+  const providerRow = [
+    submissionId, now, "New", "",
+    safeCell(payload.contactName, 120), safeCell(payload.role, 120), safeCell(payload.workEmail, 180), safeCell(payload.phone, 60),
+    safeCell(payload.organizationName, 160), safeCell(payload.providerType, 120), safeCell(payload.headquartersCountry, 100),
+    safeCell(payload.markets, 240), safeCell(payload.website, 240), safeCell(payload.instruments, 800), safeCell(payload.typicalTicketSize, 160),
+    safeCell(payload.sectorFocus, 300), safeCell(payload.targetBusinessProfile, 1200), safeCell(payload.assessmentRequirements, 1200),
+    safeCell(payload.originationChallenge, 1200), safeCell(payload.partnershipInterest, 1200), payload.consentConfirmed === "Yes" ? "Yes" : "No", "", "",
+  ];
+
+  const sheetName = submissionType === "capitalProvider" ? PROVIDER_ENQUIRIES_SHEET : SUBMISSIONS_SHEET;
+  const row = submissionType === "capitalProvider" ? providerRow : enterpriseRow;
 
   const lock = LockService.getScriptLock();
   try {
     lock.waitLock(10000);
     const spreadsheet = SpreadsheetApp.openById(spreadsheetId);
-    const sheet = spreadsheet.getSheetByName(SUBMISSIONS_SHEET);
+    const sheet = spreadsheet.getSheetByName(sheetName);
     if (!sheet) {
       return jsonResponse({ ok: false, error: "sheet_not_found" });
     }
