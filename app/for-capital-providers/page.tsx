@@ -13,13 +13,7 @@ export const metadata: Metadata = {
 export default function ForCapitalProvidersPage() {
   return (
     <main>
-      <PageHero
-        image="https://www.tunnellingnigeria.org/modern-city-skyline-nigeria-aerial-view-urban-infr.jpg"
-        eyebrow="FOR CAPITAL PROVIDERS"
-        title="See the business clearly enough to decide."
-        lead="Azael helps banks and alternative capital providers assess African businesses with more context around how they work, why capital is needed, what the evidence supports and what remains uncertain."
-        primaryAction={{ href: "/explore-a-partnership", label: "Partner with Azael" }}
-      />
+      <PageHero image="https://www.tunnellingnigeria.org/modern-city-skyline-nigeria-aerial-view-urban-infr.jpg" eyebrow="FOR CAPITAL PROVIDERS" title="See the business clearly enough to decide." lead="Azael helps banks and alternative capital providers assess African businesses with more context around how they work, why capital is needed, what the evidence supports and what remains uncertain." primaryAction={{ href: "/explore-a-partnership", label: "Partner with Azael" }} />
 
       <section className="approved-section">
         <div className="container-page">
@@ -36,7 +30,7 @@ export default function ForCapitalProvidersPage() {
             <p className="kicker">ENTERPRISE INTELLIGENCE</p>
             <h2 className="!text-[clamp(2.25rem,4.5vw,3.65rem)] !leading-[1.08] !tracking-[-.04em]">Don&apos;t start from zero.</h2>
             <p>Azael builds a structured picture of how the business works, what it is trying to achieve, why it may need capital, what the evidence supports and what remains uncertain.</p>
-            <p><strong>We don&apos;t replace diligence. We reduce how much has to be rediscovered before the real assessment can begin.</strong></p>
+            <p><strong>The aim is not to replace diligence. It is to reduce how much has to be rediscovered before serious assessment can begin.</strong></p>
           </div>
           <div className="assess-panel">
             <div className="profile-head-approved"><b>Enterprise Intelligence</b><span>WHAT YOU CAN SEE</span></div>
@@ -51,8 +45,8 @@ export default function ForCapitalProvidersPage() {
       <section className="approved-section">
         <div className="container-page">
           <p className="kicker">CAPITAL FIT</p>
-          <h2 className="approved-title mt-4">Know why a business warrants a closer look.</h2>
-          <p className="approved-copy mt-7">Azael compares what the business actually needs with what the provider is designed to finance. Where there may be fit, we make the rationale, supporting evidence and remaining questions visible.</p>
+          <h2 className="approved-title mt-4">See where the fit may be.</h2>
+          <p className="approved-copy mt-7">Capital Fit compares what the business needs with what the provider is designed to support—and makes the rationale, evidence and remaining questions visible.</p>
           <div className="approved-grid2">
             <article className="approved-card"><p className="kicker">THE BUSINESS</p><h3>What does the capital need to accomplish?</h3><p>Start from the actual constraint, purpose, amount, timing and conditions.</p></article>
             <article className="approved-card"><p className="kicker">THE PROVIDER</p><h3>What is your capital designed to support?</h3><p>Consider the mandate, instruments, requirements and constraints that determine genuine fit.</p></article>
@@ -73,7 +67,6 @@ export default function ForCapitalProvidersPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </main>
   );
