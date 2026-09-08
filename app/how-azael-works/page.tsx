@@ -14,7 +14,7 @@ const stages = [
   ["01", "Understand", "Start with how the business really works.", "Begin with a light Discovery and focused conversation. No exhaustive document pack upfront."],
   ["02", "Determine", "Find the real constraint.", "Work out what is holding the business back and whether capital can address it."],
   ["03", "Build", "Go deeper where it matters.", "Develop the evidence needed to answer the questions that can change what happens next."],
-  ["04", "Connect", "Move toward suitable capital with context already established.", "Where capital makes sense, explore providers designed for that need. Each provider retains its own diligence and final decision."],
+  ["04", "Connect", "Explore capital only when the need is clear.", "Where capital makes sense, identify suitable pathways with the business need, purpose of capital, evidence and remaining questions already established. Each provider retains its own diligence and final decision."],
 ] as const;
 
 export default function HowAzaelWorksPage() {
@@ -66,7 +66,6 @@ export default function HowAzaelWorksPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </main>
   );
