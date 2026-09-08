@@ -10,16 +10,16 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"], var
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.azael.africa"),
   title: {
-    default: "Azael Africa — Enterprise Intelligence for Businesses and Capital",
+    default: "Azael Africa — Capital begins with understanding",
     template: "%s | Azael Africa",
   },
-  description: "Azael helps established African businesses understand what their journeys require, determine the role of capital and build the intelligence needed to pursue suitable capital pathways.",
+  description: "For businesses, Azael helps determine what their ambitions require and what role capital should play. For capital providers, it helps make the business clear enough to make a better decision.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: "Azael Africa",
     url: "https://www.azael.africa",
-    title: "Azael Africa — Enterprise Intelligence for Businesses and Capital",
+    title: "Azael Africa — Capital begins with understanding",
     description: "Intelligence for Africa's businesses and capital markets.",
   },
   robots: { index: true, follow: true },
