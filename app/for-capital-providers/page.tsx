@@ -5,25 +5,10 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "For Capital Providers — Enterprise Intelligence",
-  description: "Explore how Azael is building reusable, evidence-aware Enterprise Intelligence for banks and alternative capital providers.",
+  title: "For Capital Providers — See the Business Clearly Enough to Decide",
+  description: "Azael helps banks and alternative capital providers assess African businesses with context around how they work, why capital is needed and what the evidence supports.",
   alternates: { canonical: "/for-capital-providers" },
 };
-
-const mandateQuestions = [
-  ["Mandate", "Which businesses and business journeys are relevant to you?"],
-  ["Instruments", "How can your capital be structured and used?"],
-  ["Requirements", "What must be present before you can seriously assess an opportunity?"],
-  ["Constraints", "What conditions would prevent you from proceeding?"],
-] as const;
-
-const enterpriseView = [
-  ["Business today", "How the business operates, earns money and serves customers."],
-  ["What it is trying to achieve", "The change management is pursuing and what success would require."],
-  ["Initial Strategic Judgment", "Azael's current view of the most important issue to address."],
-  ["Evidence and open questions", "What is supported, what remains uncertain and what should be understood next."],
-  ["Purpose of capital", "What capital would need to accomplish for the business."],
-] as const;
 
 export default function ForCapitalProvidersPage() {
   return (
@@ -31,92 +16,61 @@ export default function ForCapitalProvidersPage() {
       <PageHero
         image="https://www.tunnellingnigeria.org/modern-city-skyline-nigeria-aerial-view-urban-infr.jpg"
         eyebrow="FOR CAPITAL PROVIDERS"
-        title="Begin with a structured understanding of the enterprise."
-        lead="Azael is building reusable, evidence-aware Enterprise Intelligence for banks and alternative capital providers."
-        body="Explore how that intelligence could strengthen enterprise discovery, qualification and origination—without replacing your own assessment or decision-making."
-        primaryAction={{ href: "/explore-a-partnership", label: "Explore a Partnership" }}
+        title="See the business clearly enough to decide."
+        lead="Azael helps banks and alternative capital providers assess African businesses with more context around how they work, why capital is needed, what the evidence supports and what remains uncertain."
+        primaryAction={{ href: "/explore-a-partnership", label: "Partner with Azael" }}
       />
 
       <section className="approved-section">
         <div className="container-page">
-          <p className="kicker">PARTNERSHIP TODAY</p>
-          <h2 className="approved-title mt-4">For providers financing established African businesses.</h2>
-          <p className="approved-copy mt-7">Azael is inviting banks and alternative capital providers to explore how Enterprise Intelligence could support their existing enterprise discovery, qualification and origination processes.</p>
-          <p className="approved-copy mt-5">A partnership begins with understanding your mandate, the information you need and how a useful, consented handoff should work.</p>
+          <p className="kicker">WHY IT MATTERS</p>
+          <h2 className="approved-title mt-4">Smaller transactions can be expensive to assess.</h2>
+          <p className="approved-copy mt-7">Business information is often fragmented. Verification takes time. And much of the same work may be repeated as a business moves from one provider to another.</p>
+          <p className="approved-copy mt-5">For smaller transactions, those costs can determine whether an opportunity receives serious attention at all.</p>
         </div>
       </section>
 
-      <section className="mandate !bg-azael-cream">
-        <div className="container-page mandate-grid">
-          <div>
-            <p className="kicker">CAPITAL INTELLIGENCE</p>
-            <h2 className="!text-[clamp(2.25rem,4.5vw,3.65rem)] !leading-[1.08] !tracking-[-.04em]">Start with what you finance and require.</h2>
-            <p>A provider&apos;s mandate is more than sector, geography and ticket size. Azael is developing Capital Intelligence to structure what a provider finances, how its capital can be used, what must be present and which constraints matter.</p>
-          </div>
-          <div className="signal-list">
-            {mandateQuestions.map(([label, question]) => (
-              <div className="signal" key={label}>
-                <label>{label}</label>
-                <div>{question}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="assessment !bg-white">
+      <section className="assessment !bg-azael-cream">
         <div className="container-page assess-shell">
           <div className="assess-copy">
             <p className="kicker">ENTERPRISE INTELLIGENCE</p>
-            <h2 className="!text-[clamp(2.25rem,4.5vw,3.65rem)] !leading-[1.08] !tracking-[-.04em]">Begin with more than a profile or pitch deck.</h2>
-            <p>Enterprise Discovery creates an initial, structured understanding of the business. That understanding can be deepened over time as additional information and evidence become relevant.</p>
-            <p>Enterprise information would only be shared with a provider with the enterprise&apos;s consent.</p>
+            <h2 className="!text-[clamp(2.25rem,4.5vw,3.65rem)] !leading-[1.08] !tracking-[-.04em]">Don&apos;t start from zero.</h2>
+            <p>Azael builds a structured picture of how the business works, what it is trying to achieve, why it may need capital, what the evidence supports and what remains uncertain.</p>
+            <p><strong>We don&apos;t replace diligence. We reduce how much has to be rediscovered before the real assessment can begin.</strong></p>
           </div>
           <div className="assess-panel">
-            <div className="profile-head-approved">
-              <b>Enterprise Intelligence</b>
-              <span>STRUCTURED VIEW</span>
-            </div>
-            {enterpriseView.map(([label, copy]) => (
-              <div className="metric-approved" key={label}>
-                <label>{label}</label>
-                <div>{copy}</div>
-              </div>
-            ))}
+            <div className="profile-head-approved"><b>Enterprise Intelligence</b><span>WHAT YOU CAN SEE</span></div>
+            <div className="metric-approved"><label>The business</label><div>How it operates, earns money and serves customers.</div></div>
+            <div className="metric-approved"><label>The ambition</label><div>What management is trying to change or achieve.</div></div>
+            <div className="metric-approved"><label>The role of capital</label><div>What money needs to accomplish for the business.</div></div>
+            <div className="metric-approved"><label>The evidence</label><div>What is supported, what is reported and what remains uncertain.</div></div>
           </div>
+        </div>
+      </section>
+
+      <section className="approved-section">
+        <div className="container-page">
+          <p className="kicker">CAPITAL FIT</p>
+          <h2 className="approved-title mt-4">Know why a business warrants a closer look.</h2>
+          <p className="approved-copy mt-7">Azael compares what the business actually needs with what the provider is designed to finance. Where there may be fit, we make the rationale, supporting evidence and remaining questions visible.</p>
+          <div className="approved-grid2">
+            <article className="approved-card"><p className="kicker">THE BUSINESS</p><h3>What does the capital need to accomplish?</h3><p>Start from the actual constraint, purpose, amount, timing and conditions.</p></article>
+            <article className="approved-card"><p className="kicker">THE PROVIDER</p><h3>What is your capital designed to support?</h3><p>Consider the mandate, instruments, requirements and constraints that determine genuine fit.</p></article>
+          </div>
+          <p className="reassure-approved">Capital Fit is a reason to investigate further—not a credit, investment or funding decision.</p>
         </div>
       </section>
 
       <section className="approved-section approved-alt">
         <div className="container-page">
-          <p className="kicker">POTENTIAL ALIGNMENT</p>
-          <h2 className="approved-title mt-4">Bring enterprise understanding and provider requirements together.</h2>
-          <p className="approved-copy mt-7">Azael is developing a system designed to relate Enterprise Intelligence to Capital Intelligence. The aim is to show where there may be alignment, where there may not be, and why.</p>
-          <div className="approved-grid2">
-            <article className="approved-card">
-              <p className="kicker">ENTERPRISE SIDE</p>
-              <h3>What does the business need?</h3>
-              <p>Understand the business, its intended change, what stands in the way and what capital should accomplish.</p>
-            </article>
-            <article className="approved-card">
-              <p className="kicker">PROVIDER SIDE</p>
-              <h3>What can the provider support?</h3>
-              <p>Understand the mandate, available instruments, requirements and genuine constraints.</p>
-            </article>
+          <p className="kicker">BANKS + ALTERNATIVE CAPITAL</p>
+          <h2 className="approved-title mt-4">Different capital. The same need to see the business clearly.</h2>
+          <p className="approved-copy mt-7">Azael is designed to work across banks and alternative providers while preserving each institution&apos;s own requirements, underwriting, diligence and decision processes.</p>
+          <div className="mt-12 border-t border-azael-navy/10 pt-8">
+            <h3 className="font-display text-2xl font-semibold text-azael-navy">Spend your attention where it matters.</h3>
+            <p className="approved-copy mt-5">The aim is to spend less effort reconstructing the basic picture and more effort on the questions that determine whether you should proceed.</p>
+            <Link href="/explore-a-partnership" className="text-link mt-7">Partner with Azael <Arrow className="arrow h-4 w-4" /></Link>
           </div>
-          <p className="reassure-approved">Possible alignment is an explanation—not a funding decision, credit decision or investment recommendation.</p>
-        </div>
-      </section>
-
-      <section className="approved-section">
-        <div className="container-page">
-          <p className="kicker">EXPLORE A PARTNERSHIP</p>
-          <h2 className="approved-title mt-4">Explore how Enterprise Intelligence could strengthen your process.</h2>
-          <p className="approved-copy mt-7">A partnership conversation can examine how you currently qualify opportunities, what information matters before a serious assessment, which mandate requirements can be structured and how consented introductions should work.</p>
-          <p className="approved-copy mt-5">Azael does not replace underwriting, credit assessment, investment committee decisions or provider judgment. Each provider retains its own requirements, assessment process and final decision.</p>
-          <Link href="/explore-a-partnership" className="text-link mt-8">
-            Explore a Partnership <Arrow className="arrow h-4 w-4" />
-          </Link>
         </div>
       </section>
 
