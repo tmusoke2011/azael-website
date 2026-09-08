@@ -26,8 +26,8 @@ export function Header({ inverse = false }: { inverse?: boolean }) {
               {label}
             </Link>
           ))}
-          <Link href="/explore-the-fit" className={`primary-cta ${inverse ? "" : "!text-azael-navy"}`}>
-            Start Discovery <Arrow className="h-4 w-4" />
+          <Link href="/get-started" className={`primary-cta ${inverse ? "" : "!text-azael-navy"}`}>
+            Get Started <Arrow className="h-4 w-4" />
           </Link>
         </nav>
         <button
@@ -47,8 +47,8 @@ export function Header({ inverse = false }: { inverse?: boolean }) {
                 {label}
               </Link>
             ))}
-            <Link href="/explore-the-fit" onClick={() => setOpen(false)} className="primary-cta mt-2 w-full justify-between">
-              Start Discovery <Arrow className="h-4 w-4" />
+            <Link href="/get-started" onClick={() => setOpen(false)} className="primary-cta mt-2 w-full justify-between">
+              Get Started <Arrow className="h-4 w-4" />
             </Link>
           </div>
         </nav>
