@@ -47,9 +47,9 @@ export default function ForCapitalProvidersPage() {
           <p className="kicker">CAPITAL FIT</p>
           <h2 className="approved-title mt-4">See where the fit may be.</h2>
           <p className="approved-copy mt-7">Capital Fit compares what the business needs with what the provider is designed to support—and makes the rationale, evidence and remaining questions visible.</p>
-          <div className="approved-grid2">
-            <article className="approved-card"><p className="kicker">THE BUSINESS</p><h3>What does the capital need to accomplish?</h3><p>Start from the actual constraint, purpose, amount, timing and conditions.</p></article>
-            <article className="approved-card"><p className="kicker">THE PROVIDER</p><h3>What is your capital designed to support?</h3><p>Consider the mandate, instruments, requirements and constraints that determine genuine fit.</p></article>
+          <div className="fit-editorial">
+            <article className="fit-editorial-item"><p className="kicker">THE BUSINESS</p><h3>What does the capital need to accomplish?</h3><p>Start from the actual constraint, purpose, amount, timing and conditions.</p></article>
+            <article className="fit-editorial-item"><p className="kicker">THE PROVIDER</p><h3>What is your capital designed to support?</h3><p>Consider the mandate, instruments, requirements and constraints that determine genuine fit.</p></article>
           </div>
           <p className="reassure-approved">Capital Fit is a reason to investigate further—not a credit, investment or funding decision.</p>
         </div>
@@ -62,8 +62,8 @@ export default function ForCapitalProvidersPage() {
           <p className="approved-copy mt-7">Azael is designed to work across banks and alternative providers while preserving each institution&apos;s own requirements, underwriting, diligence and decision processes.</p>
           <div className="mt-12 border-t border-azael-navy/10 pt-8">
             <h3 className="font-display text-2xl font-semibold text-azael-navy">Spend your attention where it matters.</h3>
-            <p className="approved-copy mt-5">The aim is to spend less effort reconstructing the basic picture and more effort on the questions that determine whether you should proceed.</p>
-            <Link href="/explore-a-partnership" className="text-link mt-7">Partner with Azael <Arrow className="arrow h-4 w-4" /></Link>
+            <p className="approved-copy mt-5">The aim is to spend less effort reconstructing the basic picture and more effort on the questions that determine whether the opportunity fits your mandate and warrants deeper assessment.</p>
+            <Link href="/explore-a-partnership" className="primary-cta mt-7 !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-azael-navy hover:!text-white">Partner with Azael <Arrow className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
