@@ -17,6 +17,13 @@ const steps = [
   ["04", "Connect", "If capital makes sense, explore suitable providers."],
 ] as const;
 
+const briefItems = [
+  ["The business", "How Azael currently sees the business and its ambition."],
+  ["The constraint", "What appears most likely to stand in the way."],
+  ["What remains unclear", "The questions or evidence that could change the decision."],
+  ["What happens next", "The work that should be done next, and why."],
+] as const;
+
 export default function ForBusinessesPage() {
   return (
     <main>
@@ -58,12 +65,11 @@ export default function ForBusinessesPage() {
             <h2 className="!text-[clamp(2.25rem,4.5vw,3.65rem)] !leading-[1.08] !tracking-[-.04em]">Leave Discovery knowing what comes next.</h2>
             <p>We give you a concise view of what we have learned, what we think is happening, what remains unclear and what needs to be investigated next.</p>
           </div>
-          <div className="assess-panel">
-            <div className="profile-head-approved"><b>Discovery Brief</b><span>WHAT IT MAKES CLEAR</span></div>
-            <div className="metric-approved"><label>The business</label><div>How Azael currently sees the business and its ambition.</div></div>
-            <div className="metric-approved"><label>The constraint</label><div>What appears most likely to stand in the way.</div></div>
-            <div className="metric-approved"><label>What remains unclear</label><div>The questions or evidence that could change the decision.</div></div>
-            <div className="metric-approved"><label>What happens next</label><div>The work that should be done next, and why.</div></div>
+          <div className="brief-editorial">
+            <div className="brief-editorial-head"><span>WHAT IT MAKES CLEAR</span></div>
+            {briefItems.map(([label, copy]) => (
+              <div className="brief-editorial-item" key={label}><label>{label}</label><div>{copy}</div></div>
+            ))}
           </div>
         </div>
       </section>
@@ -77,7 +83,7 @@ export default function ForBusinessesPage() {
           <div className="mt-12 border-t border-azael-navy/10 pt-8">
             <h3 className="font-display text-2xl font-semibold text-azael-navy">Capital is not the starting assumption.</h3>
             <p className="approved-copy mt-5">Azael does not guarantee funding. We help establish whether capital addresses the real constraint, what it should accomplish and what must be demonstrated before a provider can make its own decision.</p>
-            <Link href="/start-discovery" className="text-link mt-7">Start Discovery <Arrow className="arrow h-4 w-4" /></Link>
+            <Link href="/start-discovery" className="primary-cta mt-7 !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-azael-navy hover:!text-white">Start Discovery <Arrow className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
