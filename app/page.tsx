@@ -11,13 +11,13 @@ export default function Home() {
         <Image src="https://images.pexels.com/photos/30380877/pexels-photo-30380877.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Aerial view of Dar es Salaam highway and cityscape" fill priority sizes="100vw" className="hero-image" />
         <Header inverse />
         <div className="container-page hero-content">
-          <div className="max-w-[820px]">
+          <div className="max-w-[860px]">
             <p className="eyebrow-light">AZAEL</p>
-            <h1 className="display-balance font-display text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[1.04] tracking-[-0.055em]">Capital begins with understanding.</h1>
-            <p className="hero-lead mt-7 max-w-[790px] text-[clamp(1.15rem,1.7vw,1.45rem)] font-semibold leading-[1.5]">For businesses, that means knowing what your ambition requires and what role capital should play. For capital providers, it means seeing the business clearly enough to make a better decision.</p>
+            <h1 className="display-balance font-display text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[1.04] tracking-[-0.055em]">Looking for capital? Make the business case clear.</h1>
+            <p className="hero-lead mt-7 max-w-[800px] text-[clamp(1.15rem,1.7vw,1.45rem)] font-semibold leading-[1.5]">Capital providers need to understand the business, where it is going, what the money needs to accomplish and what supports the case. Azael helps establish that picture and determine where the capital need may fit.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/for-businesses" className="primary-cta !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-white">For Businesses <Arrow className="h-4 w-4" /></Link>
-              <Link href="/for-capital-providers" className="primary-cta">For Capital Providers <Arrow className="h-4 w-4" /></Link>
+              <Link href="/for-businesses" className="primary-cta !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-white">I&apos;m Looking for Capital <Arrow className="h-4 w-4" /></Link>
+              <Link href="/for-capital-providers" className="primary-cta">I Provide Capital <Arrow className="h-4 w-4" /></Link>
             </div>
           </div>
         </div>
@@ -26,9 +26,10 @@ export default function Home() {
       <section className="approved-section">
         <div className="container-page">
           <p className="kicker">WHY AZAEL</p>
-          <h2 className="approved-title mt-4 max-w-4xl">The full picture rarely fits into an application.</h2>
-          <p className="approved-copy mt-7">Financial statements matter. But they may not show how a business really works, where it is going or what is holding it back.</p>
-          <p className="economic-insight mt-7">Building that understanding takes time. When the transaction is relatively small, the cost of doing so can make an otherwise productive business uneconomic to consider.</p>
+          <h2 className="approved-title mt-4 max-w-4xl">Capital begins with understanding.</h2>
+          <p className="approved-copy mt-7">Before a bank, SACCO, fund or other capital provider can make a serious decision, it needs to understand the business behind the funding request.</p>
+          <p className="approved-copy mt-5">Financial statements matter. But they may not show how the business really works, where it is going or what is standing in the way.</p>
+          <p className="economic-insight mt-7">For smaller transactions, the cost of building that understanding can determine whether an otherwise productive business receives serious consideration at all.</p>
         </div>
       </section>
 
@@ -37,35 +38,36 @@ export default function Home() {
           <div className="example-copy-approved">
             <p className="kicker">HOW AZAEL HELPS</p>
             <h2 className="!text-[clamp(2.3rem,4.8vw,4rem)] !leading-[1.08] !tracking-[-.045em]">Start with the business, not the funding request.</h2>
-            <p>We look at how the business works, what management is trying to achieve and what stands in the way.</p>
-            <p><strong>We don&apos;t assume capital is the answer.</strong></p>
-            <p>If money can solve the right problem, we work out what it needs to do and what must be established before it is pursued.</p>
+            <p>Azael begins with how the business works and what management is trying to achieve.</p>
+            <p>We then work out what is standing in the way, whether capital can help and what the money would need to accomplish.</p>
+            <p>Where capital makes sense, we build the case and explore where the need may fit.</p>
           </div>
           <div className="profile-approved">
             <div className="profile-head-approved"><b>THE AZAEL APPROACH</b><span>FOUR STEPS</span></div>
-            <div className="metric-approved"><label>01 · Understand</label><div>See how the business really works.</div></div>
-            <div className="metric-approved"><label>02 · Determine</label><div>Find the constraint and decide whether capital can address it.</div></div>
-            <div className="metric-approved"><label>03 · Build</label><div>Develop evidence around the questions that can change the decision.</div></div>
-            <div className="metric-approved"><label>04 · Connect</label><div>Where capital fits, explore providers designed for that need.</div></div>
+            <div className="metric-approved"><label>01 · Understand</label><div>Establish the business behind the funding request.</div></div>
+            <div className="metric-approved"><label>02 · Determine</label><div>Work out what the business actually needs.</div></div>
+            <div className="metric-approved"><label>03 · Prepare</label><div>Build a case a capital provider can understand.</div></div>
+            <div className="metric-approved"><label>04 · Fit</label><div>Find where the need may fit.</div></div>
           </div>
         </div>
       </section>
 
       <section className="approved-section approved-alt">
         <div className="container-page audience-editorial">
-          <article className="audience-editorial-item"><p className="kicker">FOR BUSINESSES</p><h3>Know what your ambition requires.</h3><p>Work out what is holding the business back, whether capital can help and what must be established before pursuing it.</p><Link className="text-link mt-5" href="/for-businesses">For Businesses <Arrow className="arrow h-4 w-4" /></Link></article>
-          <article className="audience-editorial-item"><p className="kicker">FOR CAPITAL PROVIDERS</p><h3>See the business clearly enough to decide.</h3><p>Assess the business with context around how it works, why capital is needed, what the evidence supports and what remains uncertain.</p><Link className="text-link mt-5" href="/for-capital-providers">For Capital Providers <Arrow className="arrow h-4 w-4" /></Link></article>
+          <article className="audience-editorial-item"><p className="kicker">FOR BUSINESSES</p><h3>Looking for capital for your business?</h3><p>Azael helps establish the business behind the funding request, what the money needs to accomplish and what must be understood before suitable sources of capital can be explored.</p><Link className="text-link mt-5" href="/for-businesses">For Businesses <Arrow className="arrow h-4 w-4" /></Link></article>
+          <article className="audience-editorial-item"><p className="kicker">FOR CAPITAL PROVIDERS</p><h3>Find and understand businesses that may fit.</h3><p>Azael helps capital providers identify potential fit and begin with more of the business already understood.</p><Link className="text-link mt-5" href="/for-capital-providers">For Capital Providers <Arrow className="arrow h-4 w-4" /></Link></article>
         </div>
       </section>
 
       <section className="section-navy py-20 md:py-24">
         <div className="container-page">
-          <p className="eyebrow-light">THE INTELLIGENCE BEHIND IT</p>
-          <h2 className="max-w-3xl font-display text-[clamp(2.3rem,4.8vw,4rem)] font-semibold leading-[1.08] tracking-[-.045em]">Understand the business. Understand the capital.</h2>
+          <p className="eyebrow-light">THE IDEA BEHIND AZAEL</p>
+          <h2 className="max-w-3xl font-display text-[clamp(2.3rem,4.8vw,4rem)] font-semibold leading-[1.08] tracking-[-.045em]">Don&apos;t start from zero every time.</h2>
+          <p className="mt-6 max-w-3xl text-[17px] leading-[1.7] text-white/70">A business may encounter several possible capital providers before finding the right fit. Much of the work of understanding that business should not have to begin again each time. Azael builds that understanding so it can be developed and carried forward.</p>
           <div className="mt-10 grid gap-8 md:grid-cols-3">
-            <div><h3 className="font-display text-xl font-semibold">Enterprise Intelligence</h3><p className="mt-3 text-white/70">What does the business really need?</p></div>
-            <div><h3 className="font-display text-xl font-semibold">Capital Intelligence</h3><p className="mt-3 text-white/70">What is the provider designed to support?</p></div>
-            <div><h3 className="font-display text-xl font-semibold">Capital Fit</h3><p className="mt-3 text-white/70">Where do the two genuinely align?</p></div>
+            <div><h3 className="font-display text-xl font-semibold">Enterprise Intelligence</h3><p className="mt-3 text-white/70">Understand the business and what it genuinely needs.</p></div>
+            <div><h3 className="font-display text-xl font-semibold">Capital Intelligence</h3><p className="mt-3 text-white/70">Understand what different providers are able and willing to finance.</p></div>
+            <div><h3 className="font-display text-xl font-semibold">Capital Fit</h3><p className="mt-3 text-white/70">See where the two may genuinely align.</p></div>
           </div>
           <Link className="text-link mt-9 !text-white" href="/how-azael-works">How Azael Works <Arrow className="arrow h-4 w-4" /></Link>
         </div>
@@ -77,6 +79,7 @@ export default function Home() {
           <h2 className="approved-title mt-4 max-w-4xl">Make more African businesses economical to consider.</h2>
           <p className="approved-copy mt-7">Azael is building intelligence that can be carried forward instead of recreated every time a business encounters a capital provider.</p>
           <p className="approved-copy mt-5">Our ambition is to reduce the cost of getting to a credible decision so more productive African businesses can come within reach of appropriate capital.</p>
+          <p className="approved-copy mt-5"><strong>Don&apos;t lower the standard. Improve the intelligence.</strong></p>
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4"><Link className="text-link" href="/for-businesses">For Businesses <Arrow className="arrow h-4 w-4" /></Link><Link className="text-link" href="/for-capital-providers">For Capital Providers <Arrow className="arrow h-4 w-4" /></Link></div>
         </div>
       </section>
