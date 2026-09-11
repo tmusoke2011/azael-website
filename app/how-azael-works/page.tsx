@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "How Azael Works — Understand First, Then Decide",
+  title: "How Azael Works — Understand First, Then Pursue the Right Capital",
   description: "Azael establishes the business behind a capital need, determines what the money must accomplish and explores where the need may fit.",
   alternates: { canonical: "/how-azael-works" },
 };
@@ -24,7 +24,7 @@ export default function HowAzaelWorksPage() {
         <Header />
         <div className="container-page">
           <p className="kicker">HOW AZAEL WORKS</p>
-          <h1 className="approved-title mt-4 max-w-5xl">Understand first. Decide what comes next.</h1>
+          <h1 className="approved-title mt-4 max-w-5xl">Understand first. Then pursue the right capital.</h1>
           <p className="approved-copy mt-7">If you are looking for capital, the people providing it need to understand the business, why the money is needed and whether it makes sense.</p>
           <p className="approved-copy mt-5">Azael helps establish that picture before deciding which sources of capital may be suitable.</p>
         </div>
