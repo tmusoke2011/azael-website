@@ -13,7 +13,7 @@ export default function Home() {
         <div className="container-page hero-content">
           <div className="max-w-[860px]">
             <p className="eyebrow-light">AZAEL</p>
-            <h1 className="display-balance font-display text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[1.04] tracking-[-0.055em]">Looking for capital? Make the business case clear.</h1>
+            <h1 className="display-balance font-display text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[1.04] tracking-[-0.055em]">Looking for capital? Find out what it will take.</h1>
             <p className="hero-lead mt-7 max-w-[800px] text-[clamp(1.15rem,1.7vw,1.45rem)] font-semibold leading-[1.5]">Capital providers need to understand the business, where it is going, what the money needs to accomplish and what supports the case. Azael helps establish that picture and determine where the capital need may fit.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/for-businesses" className="primary-cta !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-white">I&apos;m Looking for Capital <Arrow className="h-4 w-4" /></Link>
@@ -59,26 +59,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-navy py-20 md:py-24">
-        <div className="container-page">
-          <p className="eyebrow-light">THE IDEA BEHIND AZAEL</p>
-          <h2 className="max-w-3xl font-display text-[clamp(2.3rem,4.8vw,4rem)] font-semibold leading-[1.08] tracking-[-.045em]">Don&apos;t start from zero every time.</h2>
-          <p className="mt-6 max-w-3xl text-[17px] leading-[1.7] text-white/70">A business may encounter several possible capital providers before finding the right fit. Much of the work of understanding that business should not have to begin again each time. Azael builds that understanding so it can be developed and carried forward.</p>
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            <div><h3 className="font-display text-xl font-semibold">Enterprise Intelligence</h3><p className="mt-3 text-white/70">Understand the business and what it genuinely needs.</p></div>
-            <div><h3 className="font-display text-xl font-semibold">Capital Intelligence</h3><p className="mt-3 text-white/70">Understand what different providers are able and willing to finance.</p></div>
-            <div><h3 className="font-display text-xl font-semibold">Capital Fit</h3><p className="mt-3 text-white/70">See where the two may genuinely align.</p></div>
-          </div>
-          <Link className="text-link mt-9 !text-white" href="/how-azael-works">How Azael Works <Arrow className="arrow h-4 w-4" /></Link>
-        </div>
-      </section>
-
       <section className="approved-section">
         <div className="container-page">
           <p className="kicker">WHAT WE ARE BUILDING</p>
           <h2 className="approved-title mt-4 max-w-4xl">Make more African businesses economical to consider.</h2>
-          <p className="approved-copy mt-7">Azael is building intelligence that can be carried forward instead of recreated every time a business encounters a capital provider.</p>
-          <p className="approved-copy mt-5">Our ambition is to reduce the cost of getting to a credible decision so more productive African businesses can come within reach of appropriate capital.</p>
+          <p className="approved-copy mt-7">Too many productive African businesses are expensive for capital providers to understand and assess.</p>
+          <p className="approved-copy mt-5">Azael is building a better way to establish that understanding so more businesses can be seriously considered for appropriate capital.</p>
           <p className="approved-copy mt-5"><strong>Don&apos;t lower the standard. Improve the intelligence.</strong></p>
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4"><Link className="text-link" href="/for-businesses">For Businesses <Arrow className="arrow h-4 w-4" /></Link><Link className="text-link" href="/for-capital-providers">For Capital Providers <Arrow className="arrow h-4 w-4" /></Link></div>
         </div>
