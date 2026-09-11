@@ -5,8 +5,8 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "For Businesses — Prepare for a Credible Capital Conversation",
-  description: "Azael helps African businesses establish the case behind a capital need, determine what the money must accomplish and explore where the need may fit.",
+  title: "For Businesses — Find Out What It Will Take to Pursue Capital",
+  description: "Azael helps African businesses work out what they need, what capital must accomplish and what a capital provider will need to understand before making a serious decision.",
   alternates: { canonical: "/for-businesses" },
 };
 
@@ -18,10 +18,9 @@ const steps = [
 ] as const;
 
 const briefItems = [
-  ["The business today", "How we currently understand the business and how it operates."],
-  ["What you are trying to achieve", "Where management wants to take the business and why it matters now."],
-  ["What may be standing in the way", "Our initial view of the problem and the possible role of capital."],
-  ["What needs to happen next", "The questions, information or work needed before the case can progress."],
+  ["What the business needs", "What is actually standing between the business and what it is trying to achieve."],
+  ["What capital needs to do", "Whether capital can address that need—and what the money would need to accomplish."],
+  ["What needs to be established", "What a capital provider would still need to understand before making a serious decision."],
 ] as const;
 
 export default function ForBusinessesPage() {
@@ -30,8 +29,8 @@ export default function ForBusinessesPage() {
       <PageHero
         image="https://pbs.twimg.com/media/FeIW5bpWQAE8kUH.jpg"
         eyebrow="FOR BUSINESSES"
-        title="Prepare your business for a credible capital conversation."
-        lead="You may already know what you want to achieve and how much capital you believe you need. Before a capital provider can make a serious decision, it needs to understand the business behind that request—how it works, what you are trying to accomplish, what the money needs to do and what supports the case. Azael helps establish that picture."
+        title="Find out what it will take to pursue capital."
+        lead="You may already know how much capital you want to raise and what you believe you need it for. Before approaching a provider, Azael helps work out what the business needs, what the money needs to accomplish and what a capital provider will need to understand to make a serious decision."
         primaryAction={{ href: "/start-discovery", label: "Start Your Capital Journey" }}
       />
 
@@ -61,12 +60,11 @@ export default function ForBusinessesPage() {
       <section className="assessment !bg-white">
         <div className="container-page assess-shell">
           <div className="assess-copy">
-            <p className="kicker">YOUR INITIAL VIEW</p>
+            <p className="kicker">WHAT IT MAKES CLEAR</p>
             <h2 className="!text-[clamp(2.25rem,4.5vw,3.65rem)] !leading-[1.08] !tracking-[-.04em]">Know what needs to happen next.</h2>
-            <p>After reviewing the business, Azael gives you an initial view of the business, the journey management is pursuing, what may be standing in the way and what needs to happen next.</p>
+            <p>After reviewing the business, Azael helps establish what the business needs, what role capital can play and what a provider would still need to understand.</p>
           </div>
           <div className="brief-editorial">
-            <div className="brief-editorial-head"><span>WHAT IT MAKES CLEAR</span></div>
             {briefItems.map(([label, copy]) => (
               <div className="brief-editorial-item" key={label}><label>{label}</label><div>{copy}</div></div>
             ))}
