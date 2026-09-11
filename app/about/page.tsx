@@ -6,7 +6,7 @@ import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "About Azael — Better Business Understanding for Better Capital Decisions",
-  description: "Azael is building a better way for African businesses and capital providers to reach informed capital decisions without repeatedly starting from zero.",
+  description: "Azael is building intelligence that makes African businesses more credible, reusable and economical for capital providers to understand.",
   alternates: { canonical: "/about" },
 };
 
@@ -24,7 +24,7 @@ export default function AboutPage() {
         image="https://images.pexels.com/photos/30677714/pexels-photo-30677714.jpeg?auto=compress&cs=tinysrgb&w=2200"
         eyebrow="ABOUT AZAEL"
         title="Better capital decisions begin with seeing the business clearly."
-        body="Too many productive African businesses are difficult and expensive for capital providers to assess. Azael is building the intelligence needed to make them more economical to understand."
+        body="Too many productive African businesses are difficult and expensive for capital providers to understand. Azael is building the intelligence needed to make that understanding more credible, reusable and economical."
       />
 
       <section className="about-editorial-approved">
@@ -33,6 +33,7 @@ export default function AboutPage() {
             <h2>The cost of getting to know a business matters.</h2>
             <div>
               <p>For smaller transactions, the work required to discover, interpret and verify a business can become large relative to the capital involved.</p>
+              <p className="mt-5">When that happens, an otherwise productive business may become uneconomic for a provider to consider.</p>
               <p className="mt-5">Azael is working to make that picture easier to build, carry forward and use again.</p>
             </div>
           </div>
@@ -65,6 +66,7 @@ export default function AboutPage() {
           <p className="kicker">OUR AMBITION</p>
           <h2 className="approved-title mt-4">Expand the boundary of what capital can economically consider.</h2>
           <p className="approved-copy mt-7">By making the work of understanding a business increasingly reusable, Azael aims to reduce unnecessary repetition and make more African businesses economical for capital providers to consider.</p>
+          <p className="approved-copy mt-5"><strong>Not by lowering the standard for capital decisions, but by improving the intelligence available to make them.</strong></p>
           <Link href="/how-azael-works" className="text-link mt-8">How Azael Works <Arrow className="arrow h-4 w-4" /></Link>
         </div>
       </section>
