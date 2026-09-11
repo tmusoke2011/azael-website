@@ -24,7 +24,7 @@ export default function AboutPage() {
         image="https://images.pexels.com/photos/30677714/pexels-photo-30677714.jpeg?auto=compress&cs=tinysrgb&w=2200"
         eyebrow="ABOUT AZAEL"
         title="Better capital decisions begin with seeing the business clearly."
-        body="Too many productive African businesses are difficult and expensive for capital providers to assess. Azael is building a better way to bridge that gap."
+        body="Too many productive African businesses are difficult and expensive for capital providers to assess. Azael is building the intelligence needed to make them more economical to understand."
       />
 
       <section className="about-editorial-approved">
@@ -63,7 +63,7 @@ export default function AboutPage() {
       <section className="approved-section">
         <div className="container-page">
           <p className="kicker">OUR AMBITION</p>
-          <h2 className="approved-title mt-4">Bring more productive businesses within reach of capital.</h2>
+          <h2 className="approved-title mt-4">Expand the boundary of what capital can economically consider.</h2>
           <p className="approved-copy mt-7">By making the work of understanding a business increasingly reusable, Azael aims to reduce unnecessary repetition and make more African businesses economical for capital providers to consider.</p>
           <Link href="/how-azael-works" className="text-link mt-8">How Azael Works <Arrow className="arrow h-4 w-4" /></Link>
         </div>
