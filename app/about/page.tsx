@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Arrow } from "@/components/Arrow";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 
@@ -34,7 +32,7 @@ export default function AboutPage() {
             <div>
               <p>For smaller transactions, the work required to discover, interpret and verify a business can become large relative to the capital involved.</p>
               <p className="mt-5">When that happens, an otherwise productive business may become uneconomic for a provider to consider.</p>
-              <p className="mt-5">Azael is working to make that picture easier to build, carry forward and use again.</p>
+              <p className="mt-5">Azael is working to make that understanding easier to establish, carry forward and use again.</p>
             </div>
           </div>
           <div className="mt-14">
@@ -56,7 +54,7 @@ export default function AboutPage() {
         <div className="container-page">
           <p className="kicker">TECHNOLOGY + JUDGMENT</p>
           <h2>Make good judgment more economical—not less human.</h2>
-          <p className="approved-copy">Technology helps Azael organise information, preserve evidence and avoid unnecessary repetition. Professional judgment provides the context needed to make sense of it.</p>
+          <p className="approved-copy">Technology helps Azael organise information, preserve what has been established and avoid unnecessary repetition. Professional judgment provides the context needed to make sense of it.</p>
           <p className="approved-copy mt-5"><strong>A complex business should not be reduced to a single score.</strong></p>
         </div>
       </section>
@@ -67,7 +65,6 @@ export default function AboutPage() {
           <h2 className="approved-title mt-4">Expand the boundary of what capital can economically consider.</h2>
           <p className="approved-copy mt-7">By making the work of understanding a business increasingly reusable, Azael aims to reduce unnecessary repetition and make more African businesses economical for capital providers to consider.</p>
           <p className="approved-copy mt-5"><strong>Not by lowering the standard for capital decisions, but by improving the intelligence available to make them.</strong></p>
-          <Link href="/how-azael-works" className="text-link mt-8">How Azael Works <Arrow className="arrow h-4 w-4" /></Link>
         </div>
       </section>
 
