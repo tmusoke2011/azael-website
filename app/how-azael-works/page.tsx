@@ -44,20 +44,6 @@ export default function HowAzaelWorksPage() {
         </div>
       </section>
 
-      <section className="section-navy py-20 md:py-24">
-        <div className="container-page">
-          <p className="eyebrow-light">THE IDEA BEHIND AZAEL</p>
-          <h2 className="max-w-3xl font-display text-[clamp(2.3rem,4.8vw,4rem)] font-semibold leading-[1.08] tracking-[-.045em]">Don&apos;t start from zero every time.</h2>
-          <p className="mt-6 max-w-3xl text-[17px] leading-[1.7] text-white/70">A business may speak to several possible capital providers before finding the right fit. Much of the work of explaining and understanding the business should not have to begin again each time. Azael builds that understanding so it can be developed and carried forward.</p>
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            <div><h3 className="font-display text-xl font-semibold">Understand the business</h3><p className="mt-3 text-white/70">What does the business do, where is it going and what does it need?</p></div>
-            <div><h3 className="font-display text-xl font-semibold">Understand the capital</h3><p className="mt-3 text-white/70">What kinds of businesses and needs can the provider finance?</p></div>
-            <div><h3 className="font-display text-xl font-semibold">Find the fit</h3><p className="mt-3 text-white/70">Where do the two align strongly enough to continue the conversation?</p></div>
-          </div>
-          <p className="mt-9 max-w-3xl text-[15px] leading-[1.7] text-white/60">Azael calls these Enterprise Intelligence, Capital Intelligence and Capital Fit.</p>
-        </div>
-      </section>
-
       <section className="approved-section">
         <div className="container-page">
           <p className="kicker">THE PRINCIPLE</p>
