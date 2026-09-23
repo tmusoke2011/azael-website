@@ -4,8 +4,8 @@ import { Header } from "@/components/Header";
 import { EnterpriseDiscoveryForm } from "../start-discovery/EnterpriseDiscoveryForm";
 
 export const metadata: Metadata = {
-  title: "Start Your Capital Journey — Azael",
-  description: "Tell Azael about the business behind your capital need. Begin with a guided business intake; no documents are required at this stage.",
+  title: "Start Your Capital Enquiry",
+  description: "Tell Azael about your business, what you are trying to achieve and how you believe capital could help. No documents are required to begin.",
   alternates: { canonical: "/capital-enquiry" },
 };
 

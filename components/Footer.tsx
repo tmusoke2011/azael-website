@@ -8,9 +8,9 @@ export function Footer() {
         <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-[1.1fr_2fr]">
           <div>
             <Wordmark inverse />
-            <p className="mt-5 max-w-xs text-sm leading-6 text-white/65">Capital begins with understanding.</p>
+            <p className="mt-5 max-w-xs text-sm leading-6 text-white/65">Better-prepared businesses. Better-informed capital decisions.</p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <p className="footer-label">EXPLORE</p>
               <div className="footer-links">
@@ -18,6 +18,13 @@ export function Footer() {
                 <Link href="/for-capital-providers">For Capital Providers</Link>
                 <Link href="/how-azael-works">How Azael Works</Link>
                 <Link href="/about">About</Link>
+              </div>
+            </div>
+            <div>
+              <p className="footer-label">GET STARTED</p>
+              <div className="footer-links">
+                <Link href="/capital-enquiry">Start Your Capital Enquiry</Link>
+                <Link href="/capital-provider-enquiry">Tell Us About Your Mandate</Link>
               </div>
             </div>
             <div>

@@ -5,16 +5,16 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "How Azael Works — Understand First, Then Pursue the Right Capital",
-  description: "Azael establishes the business behind a capital need, determines what the money must accomplish and explores where the need may fit.",
+  title: "How Azael Works — From Capital Need to Funding Case",
+  description: "See how Azael turns a business capital need into a credible funding case and explores suitable capital providers.",
   alternates: { canonical: "/how-azael-works" },
 };
 
 const stages = [
-  ["01", "Understand", "Start with the business behind the funding request.", "We begin with how the business works today, what management is trying to achieve and why capital is being considered. We start with a few questions and a focused conversation. You do not need to prepare extensive documents upfront."],
-  ["02", "Determine", "Work out what is actually needed.", "We look at what may be standing between the business and what it wants to achieve. If capital can help, we work out what the money needs to accomplish and what we still need to know to support that case."],
-  ["03", "Prepare", "Build a case a capital provider can understand.", "Where capital makes sense, we bring together the information needed to explain the business, what it is trying to achieve, why capital is needed and what supports the case. We may find that the amount, timing or type of capital needed is different from what was first expected."],
-  ["04", "Fit", "Find where the need may fit.", "Different providers finance different kinds of businesses and different needs. Azael looks for where what the business needs may fit with what a bank, SACCO, fund or other capital provider is able and willing to finance. Where there is potential fit, the business decides what may be shared. The provider carries out its own assessment and makes its own decision."],
+  ["01", "Understand the business and its goal", "We begin with how the business works, where it is trying to go and why capital is being considered.", "A clear business goal and the problem standing in its way."],
+  ["02", "Work out the capital requirement", "We determine whether capital can help and what the money would need to accomplish.", "The purpose, amount, timing and possible form of capital."],
+  ["03", "Prepare the case", "We bring together the information that explains the business, the need and what supports it.", "A credible case, with important information gaps made clear."],
+  ["04", "Engage suitable providers", "We compare the need with providers able and willing to finance it.", "A clearer view of which providers may fit and what they will assess."],
 ] as const;
 
 export default function HowAzaelWorksPage() {
@@ -24,20 +24,18 @@ export default function HowAzaelWorksPage() {
         <Header />
         <div className="container-page">
           <p className="kicker">HOW AZAEL WORKS</p>
-          <h1 className="approved-title mt-4 max-w-5xl">Understand first. Then pursue the right capital.</h1>
-          <p className="approved-copy mt-7">If you are looking for capital, the people providing it need to understand the business, why the money is needed and whether it makes sense.</p>
-          <p className="approved-copy mt-5">Azael helps establish that picture before deciding which sources of capital may be suitable.</p>
+          <h1 className="approved-title mt-4 max-w-5xl">From a capital need to a credible funding case.</h1>
+          <p className="approved-copy mt-7">Azael begins with the business, works out what funding is needed, prepares the case and then explores suitable capital providers.</p>
         </div>
       </section>
 
       <section className="journey !bg-azael-cream">
         <div className="container-page">
           <div className="steps">
-            {stages.map(([number, title, heading, copy]) => (
+            {stages.map(([number, heading, copy, outcome]) => (
               <article className="step" key={number}>
-                <div className="n">{number} · {title}</div>
-                <h3>{heading}</h3>
-                <p>{copy}</p>
+                <div className="n">{number}</div><h3>{heading}</h3><p>{copy}</p>
+                <p className="mt-5 border-t border-azael-navy/10 pt-4"><strong>Outcome:</strong> {outcome}</p>
               </article>
             ))}
           </div>
@@ -46,12 +44,13 @@ export default function HowAzaelWorksPage() {
 
       <section className="approved-section">
         <div className="container-page">
-          <p className="kicker">THE PRINCIPLE</p>
-          <h2 className="approved-title mt-4">Capital should follow understanding.</h2>
-          <p className="approved-copy mt-7">Azael does not simply take a funding request and start making introductions. We first establish the business behind the request and what the capital needs to accomplish.</p>
-          <p className="approved-copy mt-5">If there is a potential fit, the capital provider still carries out its own assessment and decides whether to proceed.</p>
+          <p className="kicker">WHERE PROVIDERS ENTER</p>
+          <h2 className="approved-title mt-4">A prepared opportunity—not just a request for money.</h2>
+          <p className="approved-copy mt-7">Azael compares the business need with a provider&apos;s mandate, including sector, location, size and type of capital.</p>
+          <p className="approved-copy mt-5">The business controls what information is shared. The provider carries out its own assessment and makes its own funding decision.</p>
           <div className="mt-12 border-t border-azael-navy/10 pt-8">
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+            <p className="kicker">CHOOSE YOUR PATH</p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link href="/for-businesses" className="primary-cta !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-azael-navy hover:!text-white">For Businesses <Arrow className="h-4 w-4" /></Link>
               <Link className="text-link" href="/for-capital-providers">For Capital Providers <Arrow className="arrow h-4 w-4" /></Link>
             </div>

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
+import { PhoneField, SelectField, TextAreaField as TextArea, TextField as Field } from "@/components/FormFields";
+import { isValidPhone, isValidWebsite, normalizePhone, normalizeWebsite } from "@/lib/form-normalization";
 import { submitDiscoveryForm, type DiscoveryFormState } from "./actions";
 
 const initialState: DiscoveryFormState = { message: "" };
@@ -12,6 +14,7 @@ type Answers = {
   contactName: string;
   role: string;
   workEmail: string;
+  phoneCountryCode: string;
   phone: string;
   businessName: string;
   country: string;
@@ -35,6 +38,7 @@ const initialAnswers: Answers = {
   contactName: "",
   role: "",
   workEmail: "",
+  phoneCountryCode: "+256",
   phone: "",
   businessName: "",
   country: "",
@@ -75,99 +79,6 @@ const timingOptions = [
 
 const currencyOptions = ["UGX", "USD", "EUR", "GBP", "Other"];
 
-function Field({
-  label,
-  value,
-  onChange,
-  type = "text",
-  optional = false,
-  placeholder = "",
-}: {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  type?: string;
-  optional?: boolean;
-  placeholder?: string;
-}) {
-  return (
-    <label className="block">
-      <span className="text-sm font-semibold text-azael-navy">
-        {label}
-        {optional ? <span className="ml-2 font-normal text-azael-slate">Optional</span> : null}
-      </span>
-      <input
-        type={type}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        placeholder={placeholder}
-        className="mt-2 min-h-12 w-full border-0 border-b border-azael-navy/20 bg-transparent px-0 py-3 text-[17px] text-azael-navy outline-none transition-colors placeholder:text-azael-slate/45 focus:border-azael-gold"
-      />
-    </label>
-  );
-}
-
-function SelectField({
-  label,
-  value,
-  onChange,
-  options,
-  optional = false,
-}: {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  options: string[];
-  optional?: boolean;
-}) {
-  return (
-    <label className="block">
-      <span className="text-sm font-semibold text-azael-navy">
-        {label}
-        {optional ? <span className="ml-2 font-normal text-azael-slate">Optional</span> : null}
-      </span>
-      <select
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        className="mt-2 min-h-12 w-full border-0 border-b border-azael-navy/20 bg-transparent px-0 py-3 text-[17px] text-azael-navy outline-none focus:border-azael-gold"
-      >
-        <option value="">Select one</option>
-        {options.map((option) => <option value={option} key={option}>{option}</option>)}
-      </select>
-    </label>
-  );
-}
-
-function TextArea({
-  label,
-  helper,
-  value,
-  onChange,
-  optional = false,
-}: {
-  label: string;
-  helper?: string;
-  value: string;
-  onChange: (value: string) => void;
-  optional?: boolean;
-}) {
-  return (
-    <label className="block">
-      <span className="text-[20px] font-semibold leading-7 text-azael-navy">
-        {label}
-        {optional ? <span className="ml-2 text-sm font-normal text-azael-slate">Optional</span> : null}
-      </span>
-      {helper ? <span className="mt-2 block max-w-2xl text-[15px] leading-6 text-azael-slate">{helper}</span> : null}
-      <textarea
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        placeholder="Write in your own words…"
-        className="mt-4 min-h-[150px] w-full resize-y border-0 border-b-2 border-azael-navy/15 bg-transparent px-0 py-4 text-[18px] leading-8 text-azael-navy outline-none transition-colors placeholder:text-azael-slate/45 focus:border-azael-gold"
-      />
-    </label>
-  );
-}
-
 function Choice({
   selected,
   children,
@@ -182,7 +93,7 @@ function Choice({
       type="button"
       aria-pressed={selected}
       onClick={onClick}
-      className={`w-full border-b px-1 py-4 text-left text-[16px] leading-6 transition-colors ${selected ? "border-azael-gold text-azael-navy" : "border-azael-navy/15 text-azael-slate hover:border-azael-navy/35 hover:text-azael-navy"}`}
+      className={`azael-form-choice w-full border-b px-1 py-4 text-left text-[16px] leading-6 transition-colors ${selected ? "border-azael-gold text-azael-navy" : "border-azael-navy/15 text-azael-slate hover:border-azael-navy/35 hover:text-azael-navy"}`}
     >
       <span className="flex items-start justify-between gap-5">
         <span>{children}</span>
@@ -233,19 +144,21 @@ export function EnterpriseDiscoveryForm() {
         answers.location,
         answers.description,
       ];
-      if (required.some((item) => !item.trim())) return "Please complete the required details before continuing.";
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(answers.workEmail)) return "Please enter a valid email address.";
+      if (required.some((item) => !item.trim())) return "Please complete the highlighted questions before continuing.";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(answers.workEmail)) return "Enter a valid email address.";
+      if (!isValidPhone(answers.phoneCountryCode, answers.phone)) return "Enter a valid phone number, for example +256 772 123 456.";
+      if (!isValidWebsite(answers.website)) return "Enter a website such as yourbusiness.com, or leave this field blank.";
     }
     if (screen === 2 && (!answers.ambition.trim() || !answers.whyNow.trim())) {
-      return "Tell us what you are trying to achieve and why it matters now.";
+      return "Please complete the highlighted questions before continuing.";
     }
     if (screen === 3 && !answers.constraintBelief.trim()) {
-      return "Tell us what you think is making this difficult.";
+      return "Please complete the highlighted questions before continuing.";
     }
     if (screen === 4) {
-      if (!answers.capitalCurrentlySought) return "Tell us whether you are currently looking for capital.";
+      if (!answers.capitalCurrentlySought) return "Please complete the highlighted questions before continuing.";
       if (answers.capitalCurrentlySought === "yes" && (!answers.capitalPurpose.trim() || !answers.capitalWhyNow.trim())) {
-        return "Tell us what the capital would be used for and why it is needed now.";
+        return "Please complete the highlighted questions before continuing.";
       }
     }
     return "";
@@ -270,17 +183,20 @@ export function EnterpriseDiscoveryForm() {
 
   const stepTitle = ["You & your business", "Where you're going", "What's getting in the way", "Capital", "Review & submit"][screen - 1];
   const progress = (screen / 5) * 100;
+  const submissionMessage = state.message.startsWith("We could not submit")
+    ? "We could not submit your enquiry. Your answers are still saved on this device. Please try again or email hello@azael.africa."
+    : state.message;
 
   return (
-    <form action={formAction} className="mx-auto max-w-4xl">
+    <form action={formAction} noValidate className={`mx-auto max-w-4xl ${message ? "form-has-error" : ""}`}>
       <input type="hidden" name="contactName" value={answers.contactName} />
       <input type="hidden" name="role" value={answers.role} />
       <input type="hidden" name="workEmail" value={answers.workEmail} />
-      <input type="hidden" name="phone" value={answers.phone} />
+      <input type="hidden" name="phone" value={normalizePhone(answers.phoneCountryCode, answers.phone)} />
       <input type="hidden" name="businessName" value={answers.businessName} />
       <input type="hidden" name="country" value={answers.country} />
       <input type="hidden" name="location" value={answers.location} />
-      <input type="hidden" name="website" value={answers.website} />
+      <input type="hidden" name="website" value={normalizeWebsite(answers.website)} />
       <input type="hidden" name="description" value={answers.description} />
       <input type="hidden" name="ambition" value={answers.ambition} />
       <input type="hidden" name="whyNow" value={answers.whyNow} />
@@ -294,9 +210,9 @@ export function EnterpriseDiscoveryForm() {
       <input type="hidden" name="capitalTiming" value={answers.capitalTiming} />
       <input type="hidden" name="additionalContext" value={answers.additionalContext} />
       <section className="mb-12 border-b border-azael-navy/10 pb-9">
-        <p className="kicker">ENTERPRISE DISCOVERY</p>
+        <p className="kicker">CAPITAL ENQUIRY</p>
         <h1 className="approved-title mt-4 max-w-3xl">Tell us about your business and what you are trying to achieve.</h1>
-        <p className="approved-copy mt-5 max-w-2xl">This should take about 5 minutes. You don't need to prepare any documents.</p>
+        <p className="approved-copy mt-5 max-w-2xl">Short, practical answers are enough. This should take about 5 minutes, and you do not need to prepare any documents.</p>
       </section>
 
       <div className="mb-12">
@@ -317,12 +233,12 @@ export function EnterpriseDiscoveryForm() {
           <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
             <Field label="What is your name?" value={answers.contactName} onChange={(v) => update("contactName", v)} />
             <SelectField label="What is your role in the business?" value={answers.role} onChange={(v) => update("role", v)} options={roleOptions} />
-            <Field label="What is your email address?" type="email" value={answers.workEmail} onChange={(v) => update("workEmail", v)} />
-            <Field label="What is your phone number?" value={answers.phone} onChange={(v) => update("phone", v)} placeholder="+256…" />
+            <Field label="What is your email address?" type="email" inputMode="email" autoComplete="email" value={answers.workEmail} onChange={(v) => update("workEmail", v)} />
+            <PhoneField label="What is your phone number?" countryCode={answers.phoneCountryCode} value={answers.phone} onCountryCodeChange={(v) => update("phoneCountryCode", v)} onChange={(v) => update("phone", v)} />
             <Field label="What is the name of your business?" value={answers.businessName} onChange={(v) => update("businessName", v)} />
             <Field label="Country" value={answers.country} onChange={(v) => update("country", v)} />
             <Field label="City or town" value={answers.location} onChange={(v) => update("location", v)} />
-            <Field label="Does your business have a website?" optional type="url" value={answers.website} onChange={(v) => update("website", v)} placeholder="https://" />
+            <Field label="Website or LinkedIn company page" optional inputMode="url" value={answers.website} onChange={(v) => update("website", v)} placeholder="yourbusiness.com or LinkedIn company page" helper="You do not need to add http:// or https://" />
           </div>
           <div className="mt-12">
             <TextArea
@@ -384,7 +300,7 @@ export function EnterpriseDiscoveryForm() {
           <h2 className="approved-title mt-4">Capital</h2>
           <div className="mt-10">
             <h3 className="text-[20px] font-semibold leading-7 text-azael-navy">Are you currently looking for capital for the business?</h3>
-            <div className="mt-4 grid gap-x-10 md:grid-cols-2">
+            <div className={`mt-4 grid gap-x-10 md:grid-cols-2 ${message && !answers.capitalCurrentlySought ? "form-choice-error" : ""}`}>
               <Choice selected={answers.capitalCurrentlySought === "yes"} onClick={() => update("capitalCurrentlySought", "yes")}>Yes</Choice>
               <Choice selected={answers.capitalCurrentlySought === "no"} onClick={() => update("capitalCurrentlySought", "no")}>No, not currently</Choice>
             </div>
@@ -455,9 +371,9 @@ export function EnterpriseDiscoveryForm() {
                 I confirm that the information I have provided is accurate to the best of my knowledge and I agree that Azael may use it to review this enquiry and contact me about the next steps. I have read the <Link href="/privacy" className="underline underline-offset-4">Privacy Policy</Link>.
               </span>
             </label>
-            <p className="mt-5 text-sm leading-6 text-azael-slate">Submitting this information is not a funding application and does not guarantee an advisory engagement or capital connection.</p>
+            <p className="mt-5 text-sm leading-6 text-azael-slate">Submitting an enquiry is not a funding application and does not guarantee that capital will be secured.</p>
           </div>
-          {state.message ? <p className="mt-6 border-l-2 border-azael-gold bg-azael-cream px-4 py-3 text-sm leading-6 text-azael-navy" role="alert">{state.message}</p> : null}
+          {submissionMessage ? <p className="mt-6 border-l-2 border-azael-gold bg-azael-cream px-4 py-3 text-sm leading-6 text-azael-navy" role="alert">{submissionMessage}</p> : null}
         </section>
       ) : null}
 
@@ -471,7 +387,7 @@ export function EnterpriseDiscoveryForm() {
           </button>
         ) : (
           <button disabled={pending} type="submit" className="primary-cta !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-azael-navy hover:!text-white disabled:cursor-wait disabled:opacity-60">
-            {pending ? "Submitting…" : "Submit to Azael →"}
+            {pending ? "Submitting…" : "Submit Capital Enquiry →"}
           </button>
         )}
       </div>

@@ -4,44 +4,18 @@ import { Header } from "@/components/Header";
 import { CapitalProviderForm } from "../explore-a-partnership/CapitalProviderForm";
 
 export const metadata: Metadata = {
-  title: "Explore an Enterprise Intelligence Partnership",
-  description:
-    "Tell Azael about your capital mandate, requirements and the enterprise discovery, qualification or origination problem you want to solve.",
+  title: "Tell Us About Your Mandate",
+  description: "Tell Azael what your organisation finances, the businesses you support and where your team needs help finding or screening opportunities.",
   alternates: { canonical: "/capital-provider-enquiry" },
 };
 
-export default function ExploreAPartnershipPage() {
+export default function CapitalProviderEnquiryPage() {
   return (
     <main>
-      <section className="approved-section pt-32 md:pt-40">
+      <section className="min-h-screen bg-azael-cream pt-28 pb-20 md:pt-36 md:pb-28">
         <Header />
-        <div className="container-page grid gap-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(280px,.75fr)] lg:items-start">
-          <div>
-            <p className="kicker">FOR CAPITAL PROVIDERS</p>
-            <h1 className="approved-title mt-4">Explore an Enterprise Intelligence partnership.</h1>
-            <p className="approved-copy mt-7">
-              Tell us about your capital mandate, what must be present before serious assessment and the discovery, qualification or origination problem you want to solve.
-            </p>
-          </div>
-          <aside className="approved-card">
-            <p className="kicker">A LIGHT FIRST STEP</p>
-            <h2 className="mt-3 font-display text-2xl font-semibold text-azael-navy">Before you begin</h2>
-            <ul className="mt-5 space-y-3 text-[15px] leading-6 text-azael-slate">
-              <li>This form is intended for banks and alternative capital providers.</li>
-              <li>Short, practical answers are enough for an initial review.</li>
-              <li>Azael does not share enterprise information without appropriate authorization.</li>
-              <li>Your organisation retains its own assessment and final decision.</li>
-            </ul>
-          </aside>
-        </div>
+        <div className="container-page"><CapitalProviderForm /></div>
       </section>
-
-      <section className="approved-section approved-alt">
-        <div className="container-page max-w-5xl">
-          <CapitalProviderForm />
-        </div>
-      </section>
-
       <Footer />
     </main>
   );
