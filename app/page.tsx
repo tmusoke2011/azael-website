@@ -27,7 +27,7 @@ export default function Home() {
           <div className="max-w-[860px]">
             <p className="eyebrow-light">AZAEL</p>
             <h1 className="display-balance font-display text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[1.04] tracking-[-0.055em]">Looking for capital? Find out what it will take.</h1>
-            <p className="hero-lead mt-7 max-w-[800px] text-[clamp(1.15rem,1.7vw,1.45rem)] font-semibold leading-[1.5]">Azael helps African businesses build a credible case for the capital they need—then strengthen and reuse it as relevant opportunities emerge.</p>
+            <p className="hero-lead mt-7 max-w-[800px] text-[clamp(1.15rem,1.7vw,1.45rem)] font-semibold leading-[1.5]">Azael helps African businesses build a credible case for the capital they need and connect with suitable capital providers. As new opportunities emerge, the case is strengthened—not rebuilt from scratch.</p>
             <p className="hero-body body-pretty mt-4 max-w-[760px] text-[clamp(1rem,1.35vw,1.14rem)] leading-[1.7]">We also help capital providers find relevant businesses, better understood from the start.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/for-businesses" className="primary-cta !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-white">I&apos;m Looking for Capital <Arrow className="h-4 w-4" /></Link>
