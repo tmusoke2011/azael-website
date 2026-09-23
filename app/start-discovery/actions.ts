@@ -12,8 +12,6 @@ export async function submitDiscoveryForm(
   _previousState: DiscoveryFormState,
   formData: FormData,
 ): Promise<DiscoveryFormState> {
-  if (value(formData, "companyUrl")) redirect("/start-discovery/thank-you");
-
   const capitalCurrentlySought = value(formData, "capitalCurrentlySought") === "yes";
   const payload = {
     channel: "web",
@@ -70,6 +68,8 @@ export async function submitDiscoveryForm(
       cache: "no-store",
     });
     if (!response.ok) throw new Error(`AZOS intake failed: ${response.status}`);
+    const result = await response.json() as { submissionId?: string; triageCaseId?: string };
+    console.info("AZOS intake accepted", { submissionId: result.submissionId, triageCaseId: result.triageCaseId });
   } catch (error) {
     console.error("Unable to submit intake to AZOS", error);
     return { message: "We could not submit your enquiry just now. Please try again or email hello@azael.africa." };
