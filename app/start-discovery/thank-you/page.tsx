@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Arrow } from "@/components/Arrow";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ClearDiscoveryDraft } from "./ClearDiscoveryDraft";
 
 export const metadata: Metadata = {
   title: "Information Received — Azael",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function DiscoveryThankYouPage() {
   return (
     <main>
+      <ClearDiscoveryDraft />
       <section className="approved-section min-h-[70vh] pt-32 md:pt-40">
         <Header />
         <div className="container-page max-w-4xl">
