@@ -61,7 +61,6 @@ export default function ForBusinessesPage() {
           <h2 className="approved-title mt-4">Tell us what you are trying to achieve.</h2>
           <p className="approved-copy mt-7">Start with what your business does, where you want it to go and how you believe funding could help.</p>
           <Link href="/capital-enquiry" className="primary-cta mt-7 !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-azael-navy hover:!text-white">Start Your Capital Enquiry <Arrow className="h-4 w-4" /></Link>
-          <p className="mt-5 max-w-3xl text-sm leading-6 text-azael-slate">Submitting an enquiry is not a funding application and does not guarantee that capital will be secured.</p>
         </div>
       </section>
       <Footer />

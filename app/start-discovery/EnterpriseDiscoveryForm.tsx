@@ -371,7 +371,6 @@ export function EnterpriseDiscoveryForm() {
                 I confirm that the information I have provided is accurate to the best of my knowledge and I agree that Azael may use it to review this enquiry and contact me about the next steps. I have read the <Link href="/privacy" className="underline underline-offset-4">Privacy Policy</Link>.
               </span>
             </label>
-            <p className="mt-5 text-sm leading-6 text-azael-slate">Submitting an enquiry is not a funding application and does not guarantee that capital will be secured.</p>
           </div>
           {submissionMessage ? <p className="mt-6 border-l-2 border-azael-gold bg-azael-cream px-4 py-3 text-sm leading-6 text-azael-navy" role="alert">{submissionMessage}</p> : null}
         </section>
