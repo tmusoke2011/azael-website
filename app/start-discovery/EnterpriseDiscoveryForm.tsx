@@ -5,7 +5,8 @@ import { useActionState, useEffect, useState } from "react";
 import { submitDiscoveryForm, type DiscoveryFormState } from "./actions";
 
 const initialState: DiscoveryFormState = { message: "" };
-const DRAFT_KEY = "azael-enterprise-discovery-v1";
+export const DISCOVERY_DRAFT_KEY = "azael-enterprise-discovery-v1";
+const DRAFT_KEY = DISCOVERY_DRAFT_KEY;
 
 type Answers = {
   contactName: string;
