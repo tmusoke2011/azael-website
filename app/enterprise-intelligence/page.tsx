@@ -1,1 +1,2 @@
-import {redirect} from "next/navigation";export default function Page(){redirect("/for-businesses")}
+import { permanentRedirect } from "next/navigation";
+export default function Page(){permanentRedirect("/for-businesses")}
