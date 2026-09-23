@@ -292,10 +292,6 @@ export function EnterpriseDiscoveryForm() {
       <input type="hidden" name="capitalCurrency" value={answers.capitalCurrency} />
       <input type="hidden" name="capitalTiming" value={answers.capitalTiming} />
       <input type="hidden" name="additionalContext" value={answers.additionalContext} />
-      <div className="hidden" aria-hidden="true">
-        <label>Company URL<input name="companyUrl" tabIndex={-1} autoComplete="off" /></label>
-      </div>
-
       <section className="mb-12 border-b border-azael-navy/10 pb-9">
         <p className="kicker">ENTERPRISE DISCOVERY</p>
         <h1 className="approved-title mt-4 max-w-3xl">Tell us about your business and what you are trying to achieve.</h1>
