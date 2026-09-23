@@ -212,7 +212,7 @@ export function EnterpriseDiscoveryForm() {
       <section className="mb-12 border-b border-azael-navy/10 pb-9">
         <p className="kicker">CAPITAL ENQUIRY</p>
         <h1 className="approved-title mt-4 max-w-3xl">Tell us about your business and what you are trying to achieve.</h1>
-        <p className="approved-copy mt-5 max-w-2xl">Short, practical answers are enough. This should take about 5 minutes, and you do not need to prepare any documents.</p>
+        <p className="approved-copy mt-5 max-w-2xl"><strong>Start with what matters. We build from there.</strong> Short, practical answers are enough. This should take about 5 minutes, and you do not need to prepare any documents.</p>
       </section>
 
       <div className="mb-12">
