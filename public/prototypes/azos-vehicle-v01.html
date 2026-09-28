@@ -6,10 +6,72 @@
 <div class="app"><aside class="side"><div class="brand">AZOS <span>Vehicle Intelligence</span></div><button id="reset">＋ New conversation</button><button class="active">Harrier — front knocking</button><button>Needs your attention · 1</button><button>My vehicles</button><div class="switch"><small>TEST AS</small><button id="owner" class="selected">Owner</button><button id="garage">Garage</button></div></aside><main class="main"><div class="top"><div><strong>Toyota Harrier</strong><small>UAX 482K · Vehicle case open</small></div><button class="ghost" id="view">View vehicle</button></div><div class="chat"><div class="status" id="status">Understand the front knocking</div><div id="messages"></div></div><div class="composeWrap"><div class="compose"><textarea id="input" placeholder="Tell AZOS what you need"></textarea><div class="actions"><div><button class="icon">＋</button><button class="icon">◉</button></div><button class="send" id="send">↑</button></div></div><div class="hint">Enter to send · Shift+Enter for a new line</div></div></main></div>
 <div class="drawer" id="drawer"><strong>Vehicle intelligence</strong><div>Issue: <span id="issue">Not yet described</span></div><div>Findings: <span id="findings">None yet</span></div><div>Quote: <span id="quote">—</span></div><div>Authorized: <span id="auth">—</span></div><div>Outcome: <span id="outcome">Open</span></div></div>
 <script>
-let role='owner',state={issue:'',findings:[],unresolved:['Understand the front knocking'],repairComplete:false};
-const seeds={owner:[['assistant',"Hi Timothy. I’m looking after your Toyota Harrier. What’s happening with the car?"]],garage:[['assistant','You have one inspection request for a Toyota Harrier. The owner reports a knocking sound from the front over potholes. Tell me what you found when you checked it.']]};let chats={owner:structuredClone(seeds.owner),garage:structuredClone(seeds.garage)};const q=x=>document.getElementById(x),money=n=>'UGX '+n.toLocaleString('en-US');
-function att(){return state.additionalIssue||state.unresolved[0]||'Nothing needs your attention'}function render(){q('messages').innerHTML='';for(const [r,t] of chats[role]){let d=document.createElement('div');d.className='m';d.innerHTML='<div class="av">'+(r==='assistant'?'A':role==='owner'?'T':'G')+'</div><div class="txt"></div>';d.querySelector('.txt').textContent=t;q('messages').appendChild(d)}q('status').textContent=att();q('input').placeholder=role==='owner'?'Tell AZOS what you need':'Tell AZOS what you found or what changed';q('issue').textContent=state.issue||'Not yet described';q('findings').textContent=state.findings.length?state.findings.join('; '):'None yet';q('quote').textContent=state.quote?money(state.quote):'—';q('auth').textContent=state.authorized?money(state.authorized):'—';q('outcome').textContent=state.outcome||'Open'}
-function reply(text){let t=text.toLowerCase();if(role==='owner'){if(t.includes('knock')||t.includes('pothole')){state.issue=text;state.unresolved=['Physical inspection of front suspension'];return 'I understand. Because the noise happens over potholes, the next useful step is a physical check of the front suspension. I can send the problem and relevant vehicle history to the garage without sharing your private conversation.'}if(t.includes('send')||t.includes('garage')||t.includes('inspect'))return 'Done. I’ve prepared the inspection request for the garage. You don’t need to do anything here until they respond.';if(t.includes('500'))return 'I can ask for UGX 500,000 while keeping the same repair scope and 555 parts.';if(t.includes('approve')||t.includes('550')){state.authorized=550000;state.unresolved=['Approved repair must be completed and verified'];return 'Confirmed: both lower-arm bushes, 555 parts, total UGX 550,000. Anything else will need your approval first.'}if(t.includes('gone')||t.includes('resolved')){state.outcome='Original knocking resolved';state.unresolved=state.additionalIssue?[state.additionalIssue]:[];return 'Good. I’ve recorded that the original knocking is resolved. The deferred CV boot remains open.'}return 'Tell me what you want to do next. I’ll keep unfinished items in context.'}
-if((t.includes('bush')||t.includes('play'))&&(t.includes('left')||t.includes('right'))){state.findings=['Right lower-arm bush: excessive play reported','Left lower-arm bush: cracked, less severe'];if(t.includes('link'))state.findings.push('Stabilizer links: no fault reported');if(t.includes('shock'))state.findings.push('Shocks: no fault reported');state.unresolved=['Garage recommendation for observed bush wear'];return 'This is what I understood:\n• '+state.findings.join('\n• ')+'\n\nWhat do you recommend should be done?'}if(t.includes('replace')&&t.includes('both')){state.unresolved=['Price for recommended repair'];return 'Understood: replace both lower-arm bushes. Why both rather than only the right one?'}if(t.includes('600')||t.includes('420')||t.includes('180')){state.quote=600000;state.unresolved=['Owner decision on quote'];return 'I have the quote as UGX 600,000: bushes UGX 420,000 and labour UGX 180,000. I’ll present it as the garage’s quote, not AZOS’s estimate.'}if(t.includes('550')){state.quote=550000;state.unresolved=['Owner decision on revised quote'];return 'Recorded: revised total UGX 550,000 with the same scope and 555 parts. The earlier quote remains in history.'}if(t.includes('cv')||t.includes('boot')){state.additionalIssue='CV boot torn — not yet authorized';state.unresolved=['Owner decision on additional CV boot work'];return 'I’ve added the torn CV boot as a new finding. It was not part of the approved suspension work, so don’t do it yet.'}if(t.includes('finished')||t.includes('done')){state.repairComplete=true;state.unresolved=['Owner outcome after repair'];return 'I’ve recorded the approved suspension repair as completed. I’ll keep the case open until the owner confirms whether the knocking is gone.'}if(t.includes('air')||t.includes('ac')){state.unresolved=['Suspension findings still required','Check reported AC cooling issue'];return 'I’ve added the AC cooling complaint separately. I still need what you found when checking the front knocking.'}return 'Tell me what you found, recommend, or what changed. I’ll structure it and keep unfinished work open.'}
-function send(){let text=q('input').value.trim();if(!text)return;chats[role].push(['user',text],['assistant',reply(text)]);q('input').value='';render()}q('send').onclick=send;q('input').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}};q('owner').onclick=()=>{role='owner';q('owner').classList.add('selected');q('garage').classList.remove('selected');render()};q('garage').onclick=()=>{role='garage';q('garage').classList.add('selected');q('owner').classList.remove('selected');render()};q('reset').onclick=()=>{state={issue:'',findings:[],unresolved:['Understand the front knocking'],repairComplete:false};chats={owner:structuredClone(seeds.owner),garage:structuredClone(seeds.garage)};render()};q('view').onclick=()=>q('drawer').classList.toggle('open');render();
+const q=id=>document.getElementById(id);
+const defaultState={issue:"",findings:[],recommendation:"",quote:null,authorized:null,additionalIssues:[],repairComplete:false,outcome:"",unresolved:["Understand the front knocking"]};
+let role=localStorage.getItem("azos-role")||"owner";
+let state=JSON.parse(localStorage.getItem("azos-vehicle-state")||"null")||structuredClone(defaultState);
+let chats=JSON.parse(localStorage.getItem("azos-vehicle-chats")||"null")||{
+ owner:[["assistant","Hi Timothy. I’m looking after your Toyota Harrier. What’s happening with the car?"]],
+ garage:[["assistant","You have one inspection request for a Toyota Harrier. The owner reports a knocking sound from the front over potholes. Tell me what you found when you checked it."]]
+};
+function save(){localStorage.setItem("azos-role",role);localStorage.setItem("azos-vehicle-state",JSON.stringify(state));localStorage.setItem("azos-vehicle-chats",JSON.stringify(chats))}
+function money(n){return "UGX "+Number(n).toLocaleString("en-US")}
+function attention(){return state.unresolved?.[0]||state.additionalIssues?.[0]||"Nothing needs your attention"}
+function render(){
+ q("messages").innerHTML="";
+ for(const [r,t] of chats[role]||[]){const d=document.createElement("div");d.className="m";d.innerHTML='<div class="av">'+(r==="assistant"?"A":role==="owner"?"T":"G")+'</div><div class="txt"></div>';d.querySelector(".txt").textContent=t;q("messages").appendChild(d)}
+ q("status").textContent=attention();
+ q("input").placeholder=role==="owner"?"Tell AZOS what you need":"Tell AZOS what you found or what changed";
+ q("issue").textContent=state.issue||"Not yet described";
+ q("findings").textContent=state.findings?.length?state.findings.map(x=>typeof x==="string"?x:x.text).join("; "):"None yet";
+ q("quote").textContent=state.quote?.amount?money(state.quote.amount)+" · v"+state.quote.version:"—";
+ q("auth").textContent=state.authorized?.amount?money(state.authorized.amount):"—";
+ q("outcome").textContent=state.outcome||"Open";
+ q("owner").classList.toggle("selected",role==="owner");q("garage").classList.toggle("selected",role==="garage");
+}
+function apply(actions,sourceText){
+ for(const a of actions||[]){
+  if(a.type==="set_issue"&&typeof a.value==="string") state.issue=a.value;
+  if(a.type==="add_finding"&&typeof a.value==="string"){
+    state.findings=state.findings||[];
+    state.findings.push({text:a.value,sourceRole:role,sourceText,at:new Date().toISOString()});
+  }
+  if(a.type==="set_recommendation"&&typeof a.value==="string") state.recommendation=a.value;
+  if(a.type==="set_quote"&&Number.isFinite(Number(a.amount))){
+    state.quote={amount:Number(a.amount),detail:a.detail||"",version:(state.quote?.version||0)+1};
+  }
+  if(a.type==="set_authorized"&&role==="owner"&&Number.isFinite(Number(a.amount))){
+    state.authorized={amount:Number(a.amount),scope:a.scope||""};
+  }
+  if(a.type==="add_additional_issue"&&typeof a.value==="string"){
+    state.additionalIssues=state.additionalIssues||[]; if(!state.additionalIssues.includes(a.value)) state.additionalIssues.push(a.value);
+  }
+  if(a.type==="set_repair_complete") state.repairComplete=!!a.value;
+  if(a.type==="set_outcome"&&role==="owner"&&typeof a.value==="string") state.outcome=a.value;
+  if(a.type==="set_unresolved"&&Array.isArray(a.items)) state.unresolved=a.items.filter(x=>typeof x==="string");
+ }
+}
+async function send(){
+ const input=q("input"),text=input.value.trim(); if(!text||q("send").disabled)return;
+ chats[role].push(["user",text]); input.value=""; q("send").disabled=true; q("send").textContent="…"; save(); render();
+ try{
+   const history=(chats[role]||[]).slice(-12).map(([r,t])=>({role:r==="assistant"?"assistant":"user",text:t}));
+   const res=await fetch("/api/vehicle-chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({role,message:text,state,history})});
+   const data=await res.json();
+   if(!res.ok) throw new Error(data.error||"AZOS could not respond.");
+   apply(data.actions,text);
+   chats[role].push(["assistant",data.reply||"I’ve updated the case."]);
+ }catch(e){
+   chats[role].push(["assistant","I couldn’t use the live reasoning service for that turn. "+(e?.message||"Please try again.")]);
+ }finally{
+   q("send").disabled=false;q("send").textContent="↑";save();render();input.focus();
+ }
+}
+q("send").onclick=send;
+q("input").onkeydown=e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send()}};
+q("owner").onclick=()=>{role="owner";save();render()};
+q("garage").onclick=()=>{role="garage";save();render()};
+q("reset").onclick=()=>{state=structuredClone(defaultState);chats={owner:[["assistant","Hi Timothy. I’m looking after your Toyota Harrier. What’s happening with the car?"]],garage:[["assistant","You have one inspection request for a Toyota Harrier. The owner reports a knocking sound from the front over potholes. Tell me what you found when you checked it."]]};save();render()};
+q("view").onclick=()=>q("drawer").classList.toggle("open");
+render();
 </script>
