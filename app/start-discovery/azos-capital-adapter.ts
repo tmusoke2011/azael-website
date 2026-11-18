@@ -57,7 +57,7 @@ export async function submitCapitalEnquiryV11(data: FormData): Promise<{ ok: boo
       privacy_notice_acknowledged: field(data, "accepted") === "yes",
       contact_permission: field(data, "accepted") === "yes",
       // Existing website consent does not grant WhatsApp notifications or provider sharing.
-      whatsapp_notification_consent: false,
+      whatsapp_notification_consent: field(data, "whatsappNotificationConsent") === "yes",
       capital_provider_sharing_permission: false,
     },
   };
