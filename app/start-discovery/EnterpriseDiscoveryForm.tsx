@@ -109,6 +109,7 @@ export function EnterpriseDiscoveryForm() {
   const [answers, setAnswers] = useState<Answers>(initialAnswers);
   const [message, setMessage] = useState("");
   const [hydrated, setHydrated] = useState(false);
+  const [submissionId, setSubmissionId] = useState("");
 
   useEffect(() => {
     try {
@@ -119,6 +120,7 @@ export function EnterpriseDiscoveryForm() {
         if (parsed.screen && parsed.screen >= 1 && parsed.screen <= 5) setScreen(parsed.screen);
       }
     } catch {}
+    setSubmissionId(window.crypto.randomUUID());
     setHydrated(true);
   }, []);
 
@@ -189,6 +191,7 @@ export function EnterpriseDiscoveryForm() {
 
   return (
     <form action={formAction} noValidate className={`mx-auto max-w-4xl ${message ? "form-has-error" : ""}`}>
+      <input type="hidden" name="submissionId" value={submissionId} />
       <input type="hidden" name="contactName" value={answers.contactName} />
       <input type="hidden" name="role" value={answers.role} />
       <input type="hidden" name="workEmail" value={answers.workEmail} />
@@ -385,7 +388,7 @@ export function EnterpriseDiscoveryForm() {
             {screen === 4 ? "Review your answers →" : "Continue →"}
           </button>
         ) : (
-          <button disabled={pending} type="submit" className="primary-cta !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-azael-navy hover:!text-white disabled:cursor-wait disabled:opacity-60">
+          <button disabled={pending || !submissionId} type="submit" className="primary-cta !bg-azael-gold-bright !text-azael-navy-deep hover:!bg-azael-navy hover:!text-white disabled:cursor-wait disabled:opacity-60">
             {pending ? "Submitting…" : "Submit Capital Enquiry →"}
           </button>
         )}
