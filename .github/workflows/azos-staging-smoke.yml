@@ -1,0 +1,41 @@
+name: AZOS staging enquiry smoke test
+on:
+  push:
+    branches: [feat/azos-capital-enquiry-v11]
+    paths: [.github/workflows/azos-staging-smoke.yml]
+  workflow_dispatch:
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Submit fictional staging enquiry to AZOS preview
+        env:
+          AZOS_PREVIEW_ENDPOINT: https://azos-platform-i468gj8ne-azael-team.vercel.app/api/v1/public/capital-enquiries
+        run: |
+          python3 - <<'PY'
+          import json, uuid, urllib.request, urllib.error
+          identifier = str(uuid.uuid4())
+          payload = {
+            "schema_version": "1.1", "submission_id": identifier,
+            "source": "azael_website",
+            "contact": {"full_name": "AZOS Automated QA", "role": "Test contact", "email": "qa@example.com", "whatsapp_e164": "+256700000000"},
+            "business": {"name": "AZOS FICTIONAL QA ONLY", "country_code": "UG", "website_url": None, "activity_description": "Fictional integration test, no real business"},
+            "growth": {"ambition_one_to_three_years": "Verify staging submission workflow"},
+            "capital": {"amount_known": False, "currency": None, "amount": None, "intended_use_description": "Fictional QA only"},
+            "consent": {"privacy_notice_acknowledged": True, "contact_permission": True, "whatsapp_notification_consent": False, "capital_provider_sharing_permission": False}
+          }
+          request = urllib.request.Request(
+            "https://azos-platform-i468gj8ne-azael-team.vercel.app/api/v1/public/capital-enquiries",
+            data=json.dumps(payload).encode(),
+            headers={"Content-Type":"application/json","Origin":"https://azael.africa","Idempotency-Key":identifier},
+            method="POST")
+          try:
+            with urllib.request.urlopen(request, timeout=25) as response:
+              result=json.loads(response.read())
+              print("HTTP",response.status,"success",result.get("success"),"reference",result.get("submission",{}).get("reference"))
+              assert response.status == 201 and result.get("success")
+          except urllib.error.HTTPError as e:
+            print("HTTP",e.code,"body",e.read().decode()[:800])
+            raise
+          PY
