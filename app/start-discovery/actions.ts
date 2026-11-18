@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { submitCapitalEnquiryV11 } from "./azos-capital-adapter";
 
 export type DiscoveryFormState = { message: string };
 
@@ -51,6 +52,12 @@ export async function submitDiscoveryForm(
   }
   if (capitalCurrentlySought && (!payload.capitalPurpose || !payload.capitalWhyNow)) {
     return { message: "Please tell us what the capital would be used for and why it is needed now." };
+  }
+
+  if (capitalCurrentlySought && process.env.AZOS_CAPITAL_ENQUIRY_API_URL) {
+    const submitted = await submitCapitalEnquiryV11(formData);
+    if (!submitted.ok) return { message: submitted.message || "Unable to submit your capital enquiry." };
+    redirect("/start-discovery/thank-you");
   }
 
   const endpoint = process.env.AZOS_INTAKE_URL;
