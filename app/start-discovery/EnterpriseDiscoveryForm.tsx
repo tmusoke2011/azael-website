@@ -110,6 +110,7 @@ export function EnterpriseDiscoveryForm() {
   const [message, setMessage] = useState("");
   const [hydrated, setHydrated] = useState(false);
   const [submissionId, setSubmissionId] = useState("");
+  const [whatsappConsent, setWhatsappConsent] = useState(false);
 
   useEffect(() => {
     try {
@@ -192,6 +193,7 @@ export function EnterpriseDiscoveryForm() {
   return (
     <form action={formAction} noValidate className={`mx-auto max-w-4xl ${message ? "form-has-error" : ""}`}>
       <input type="hidden" name="submissionId" value={submissionId} />
+      <input type="hidden" name="whatsappNotificationConsent" value={whatsappConsent ? "yes" : "no"} />
       <input type="hidden" name="contactName" value={answers.contactName} />
       <input type="hidden" name="role" value={answers.role} />
       <input type="hidden" name="workEmail" value={answers.workEmail} />
@@ -375,6 +377,10 @@ export function EnterpriseDiscoveryForm() {
               </span>
             </label>
           </div>
+          <label className="mt-5 flex items-start gap-3 text-[15px] leading-6 text-azael-slate">
+            <input type="checkbox" checked={whatsappConsent} onChange={(event) => setWhatsappConsent(event.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-azael-gold" />
+            <span>I agree to receive WhatsApp notifications about this enquiry. This is optional.</span>
+          </label>
           {submissionMessage ? <p className="mt-6 border-l-2 border-azael-gold bg-azael-cream px-4 py-3 text-sm leading-6 text-azael-navy" role="alert">{submissionMessage}</p> : null}
         </section>
       ) : null}
