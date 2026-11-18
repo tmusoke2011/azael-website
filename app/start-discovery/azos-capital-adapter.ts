@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 
 /** Server-side adapter. Never expose the AZOS endpoint or credentials to the browser. */
 const countryCodes: Record<string, string> = {
@@ -28,9 +27,11 @@ export async function submitCapitalEnquiryV11(data: FormData): Promise<{ ok: boo
   const rawAmount = field(data, "capitalAmount");
   const currency = field(data, "capitalCurrency");
   const amountKnown = /^[1-9][0-9]*$/.test(rawAmount) && ["UGX", "USD", "EUR"].includes(currency);
+  if (rawAmount && !amountKnown) return { ok: false, message: "Enter a whole-number amount in UGX, USD or EUR, or leave the amount blank." };
   const purpose = field(data, "capitalPurpose");
   if (!purpose) return { ok: false, message: "Please describe what the capital would be used for." };
-  const submissionId = field(data, "submissionId") || randomUUID();
+  const submissionId = field(data, "submissionId");
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(submissionId)) return { ok: false, message: "Please refresh the form and try again." };
   const payload = {
     schema_version: "1.1",
     submission_id: submissionId,
