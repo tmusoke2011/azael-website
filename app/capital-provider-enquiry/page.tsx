@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { CapitalProviderForm } from "../explore-a-partnership/CapitalProviderForm";
+import { ProviderForm } from "./ProviderForm";
 
 export const metadata: Metadata = {
   title: "Tell Us About Your Mandate",
@@ -14,7 +14,7 @@ export default function CapitalProviderEnquiryPage() {
     <main>
       <section className="min-h-screen bg-azael-cream pt-28 pb-20 md:pt-36 md:pb-28">
         <Header />
-        <div className="container-page"><CapitalProviderForm /></div>
+        <div className="container-page"><ProviderForm /></div>
       </section>
       <Footer />
     </main>
